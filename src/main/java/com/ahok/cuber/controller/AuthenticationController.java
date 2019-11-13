@@ -25,12 +25,11 @@ public class AuthenticationController {
             produces = "application/json;charset=UTF-8",
             consumes = "application/json",
             method = RequestMethod.POST)
-    public ResponseEntity token(@RequestParam String username,
-                                @RequestParam String password) {
+    public ResponseEntity token(@RequestBody Client c) {
         String token;
-        Client client = clientService.getAuth(username, password);
+        Client client = clientService.getAuth(c.getEmail(), c.getPassword());
 
-        if (client == null) return ResponseEntity.badRequest().body(JSON.toJSON("Wrong username or password"));
+        if (client == null) return ResponseEntity.badRequest().body(JSON.toJSON(String.format("Wrong username or password (%s / %s)", c.getEmail(), c.getPassword())));
 
         try {
             Algorithm algorithm = Algorithm.HMAC256(Config.getProperty("AUTH_PASSPHRASE"));
