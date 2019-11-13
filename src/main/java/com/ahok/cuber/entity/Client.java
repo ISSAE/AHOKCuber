@@ -1,19 +1,21 @@
-package models;
+package com.ahok.cuber.entity;
+
+import org.hibernate.annotations.GenericGenerator;
+import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
-import java.util.UUID;
 
-enum Gender {
-    Male,
-    Female
-}
-
+@Component
 @Entity
 @Table(name = "client")
 public class Client implements Serializable {
-    private String id;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private String id;
     private String first_name;
     private String last_name;
     private String phone_number;
@@ -55,7 +57,6 @@ public class Client implements Serializable {
 
     @PrePersist
     private void preInsert () {
-        this.id = UUID.randomUUID().toString();
         this.created_at = new Date();
         this.updated_at = new Date();
     }
@@ -81,6 +82,11 @@ public class Client implements Serializable {
     }
 
     @Id
+    @GeneratedValue(generator = "UUID")
+    @GenericGenerator(
+            name = "UUID",
+            strategy = "com.ahok.cuber.util.UUIDGenerator"
+    )
     @Column(name = "id", updatable = false, nullable = false)
     public String getId() {
         return id;

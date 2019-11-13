@@ -1,4 +1,4 @@
-package utils;
+package com.ahok.cuber.util;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
