@@ -10,13 +10,11 @@ public class Config {
     private Properties prop;
 
     public Config (String configName) {
-        InputStream input = null;
+        InputStream input;
         this.prop = new Properties();
         try {
             input = Config.class.getClassLoader().getResourceAsStream(configName + ".properties");
             prop.load(input);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
