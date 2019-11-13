@@ -11,10 +11,7 @@ import org.codehaus.jackson.map.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
 
@@ -51,7 +48,7 @@ public class AuthenticationController {
             produces = "application/json;charset=UTF-8",
             consumes = "application/json",
             method = RequestMethod.POST)
-    public ResponseEntity register(Client client) {
+    public ResponseEntity register(@RequestBody Client client) {
         clientService.createClient(client);
         return ResponseEntity.ok(JSON.toJSON(client));
     }
