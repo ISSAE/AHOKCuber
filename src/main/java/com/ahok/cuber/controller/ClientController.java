@@ -2,7 +2,7 @@ package com.ahok.cuber.controller;
 
 import com.ahok.cuber.entity.Client;
 import com.ahok.cuber.service.ClientService;
-import com.ahok.cuber.util.http.JSON;
+import com.ahok.cuber.util.http.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
@@ -23,14 +23,14 @@ public class ClientController {
         List<Client> clientsList =
                 clientService
                         .getAllClients();
-        return ResponseEntity.ok(JSON.toJSON(clientsList));
+        return Response.ok(clientsList);
     }
 
     @RequestMapping(value = "clients/get/{id}",
             produces = "application/json;charset=UTF-8",
             method = RequestMethod.GET)
     public ResponseEntity getClient(@PathVariable("id") String clientId) {
-        return ResponseEntity.ok(JSON.toJSON(clientService.getClient(clientId)));
+        return Response.ok(clientService.getClient(clientId));
     }
 
     @RequestMapping(value = "clients/add",
@@ -38,7 +38,7 @@ public class ClientController {
             consumes = "application/json",
             method = RequestMethod.POST)
     public ResponseEntity createClient(@RequestBody @Validated Client client) {
-        return ResponseEntity.ok(JSON.toJSON(clientService.createClient(client)));
+        return Response.ok(clientService.createClient(client));
     }
 
     @RequestMapping(value = "clients/update",
@@ -46,7 +46,7 @@ public class ClientController {
             consumes = "application/json",
             method = RequestMethod.PUT)
     public ResponseEntity updateClient(@RequestBody @Validated Client client) {
-        return ResponseEntity.ok(JSON.toJSON(clientService.updateClient(client)));
+        return Response.ok(clientService.updateClient(client));
     }
 
     @RequestMapping(value = "clients/delete/{id}",
@@ -54,6 +54,6 @@ public class ClientController {
             consumes = "application/json",
             method = RequestMethod.DELETE)
     public ResponseEntity deleteClient(@PathVariable("id") String clientId) {
-        return ResponseEntity.ok(JSON.toJSON(clientService.deleteClient(clientId)));
+        return Response.ok(clientService.deleteClient(clientId));
     }
 }

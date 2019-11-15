@@ -1,5 +1,6 @@
 package com.ahok.cuber.entity;
 
+import org.codehaus.jackson.annotate.JsonIgnore;
 import org.hibernate.annotations.GenericGenerator;
 import org.springframework.stereotype.Component;
 
@@ -20,7 +21,7 @@ public class Client implements Serializable {
     private String last_name;
     private String phone_number;
     private String email;
-
+    @JsonIgnore
     private String password;
     private Gender gender;
 

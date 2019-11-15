@@ -4,7 +4,6 @@ import com.ahok.cuber.controller.reqpojo.ClientLogin;
 import com.ahok.cuber.entity.Client;
 import com.ahok.cuber.service.ClientService;
 import com.ahok.cuber.util.Config;
-import com.ahok.cuber.util.http.JSON;
 import com.ahok.cuber.util.http.Response;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
@@ -24,21 +23,11 @@ public class AuthenticationController {
             consumes = "application/json",
             method = RequestMethod.POST)
     public ResponseEntity token(@RequestBody ClientLogin clf) {
-        String token;
         Client client = clientService.getAuth(clf.getEmail(), clf.getPassword());
 
         if (client == null) return Response.badRequest("Wrong username or password");
 
-        try {
-            Algorithm algorithm = Algorithm.HMAC256(Config.getProperty("AUTH_PASSPHRASE"));
-            token = JWT.create()
-                    .withIssuer("cuber")
-                    .sign(algorithm);
-        } catch (JWTCreationException exception){
-            return Response.internalError(String.format("Can't create a token! Error Message: %s", exception.getMessage()));
-        }
-
-        return Response.ok(token);
+        return generateToken();
     }
 
     @RequestMapping(value = "auth/client/register",
@@ -47,6 +36,17 @@ public class AuthenticationController {
             method = RequestMethod.POST)
     public ResponseEntity register(@RequestBody Client client) {
         clientService.createClient(client);
-        return Response.ok(client);
+        return generateToken();
+    }
+
+    private ResponseEntity generateToken() {
+        try {
+            Algorithm algorithm = Algorithm.HMAC256(Config.getProperty("AUTH_PASSPHRASE"));
+            return Response.ok(JWT.create()
+                    .withIssuer("cuber")
+                    .sign(algorithm));
+        } catch (JWTCreationException exception) {
+            return Response.internalError(String.format("Can't create a token! Error Message: %s", exception.getMessage()));
+        }
     }
 }
