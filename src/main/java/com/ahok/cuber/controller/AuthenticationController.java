@@ -1,19 +1,17 @@
 package com.ahok.cuber.controller;
 
+import com.ahok.cuber.controller.reqpojo.ClientLogin;
 import com.ahok.cuber.entity.Client;
 import com.ahok.cuber.service.ClientService;
 import com.ahok.cuber.util.Config;
-import com.ahok.cuber.util.JSON;
+import com.ahok.cuber.util.http.JSON;
+import com.ahok.cuber.util.http.Response;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.exceptions.JWTCreationException;
-import org.codehaus.jackson.map.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.io.IOException;
 
 @RestController
 public class AuthenticationController {
@@ -25,11 +23,11 @@ public class AuthenticationController {
             produces = "application/json;charset=UTF-8",
             consumes = "application/json",
             method = RequestMethod.POST)
-    public ResponseEntity token(@RequestBody Client c) {
+    public ResponseEntity token(@RequestBody ClientLogin clf) {
         String token;
-        Client client = clientService.getAuth(c.getEmail(), c.getPassword());
+        Client client = clientService.getAuth(clf.getEmail(), clf.getPassword());
 
-        if (client == null) return ResponseEntity.badRequest().body(JSON.toJSON(String.format("Wrong username or password (%s / %s)", c.getEmail(), c.getPassword())));
+        if (client == null) return Response.badRequest("Wrong username or password");
 
         try {
             Algorithm algorithm = Algorithm.HMAC256(Config.getProperty("AUTH_PASSPHRASE"));
@@ -37,10 +35,10 @@ public class AuthenticationController {
                     .withIssuer("cuber")
                     .sign(algorithm);
         } catch (JWTCreationException exception){
-            return ResponseEntity.status(500).body(JSON.toJSON(String.format("Can't create a token! Error Message: %s", exception.getMessage())));
+            return Response.internalError(String.format("Can't create a token! Error Message: %s", exception.getMessage()));
         }
 
-        return ResponseEntity.ok(JSON.toJSON(token));
+        return Response.ok(token);
     }
 
     @RequestMapping(value = "auth/client/register",
@@ -49,6 +47,6 @@ public class AuthenticationController {
             method = RequestMethod.POST)
     public ResponseEntity register(@RequestBody Client client) {
         clientService.createClient(client);
-        return ResponseEntity.ok(JSON.toJSON(client));
+        return Response.ok(client);
     }
 }

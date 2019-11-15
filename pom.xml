@@ -184,12 +184,6 @@
             <artifactId>standard</artifactId>
             <version>${taglibVersion}</version>
         </dependency>
-        <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>servlet-api</artifactId>
-            <version>${servletVersion}</version>
-            <scope>provided</scope>
-        </dependency>
 
         <!-- json Data enable springMVC Can return json value ,Add as appropriate-->
         <dependency>

@@ -1,11 +1,10 @@
 package com.ahok.cuber.controller;
-import javax.ws.rs.*;
-import javax.ws.rs.core.Response;
-import javax.ws.rs.core.MediaType;
 
 import com.ahok.cuber.entity.Client;
 import com.ahok.cuber.service.ClientService;
+import com.ahok.cuber.util.http.JSON;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,42 +16,44 @@ public class ClientController {
     @Autowired
     private ClientService clientService;
 
-    @GET
-    @RequestMapping("clients/all")
-    @Produces("application/json")
-    public Response getAllClients() {
+    @RequestMapping(value = "clients/all",
+            produces = "application/json;charset=UTF-8",
+            method = RequestMethod.GET)
+    public ResponseEntity getAllClients() {
         List<Client> clientsList =
                 clientService
                         .getAllClients();
-        return Response.ok(clientsList, MediaType.APPLICATION_JSON).build();
+        return ResponseEntity.ok(JSON.toJSON(clientsList));
     }
 
-    @GET
-    @RequestMapping("clients/get/{id}")
-    @Produces("application/json")
-    public Response getClient(@PathVariable("id") String clientId) {
-        return Response.ok(clientService.getClient(clientId), MediaType.APPLICATION_JSON).build();
+    @RequestMapping(value = "clients/get/{id}",
+            produces = "application/json;charset=UTF-8",
+            method = RequestMethod.GET)
+    public ResponseEntity getClient(@PathVariable("id") String clientId) {
+        return ResponseEntity.ok(JSON.toJSON(clientService.getClient(clientId)));
     }
 
-    @POST
-    @RequestMapping("clients/add")
-    @Consumes("application/json")
-    @Produces("application/json")
-    public Response createClient(@RequestBody @Validated Client client) {
-        return Response.ok(clientService.createClient(client), MediaType.APPLICATION_JSON).build();
+    @RequestMapping(value = "clients/add",
+            produces = "application/json;charset=UTF-8",
+            consumes = "application/json",
+            method = RequestMethod.POST)
+    public ResponseEntity createClient(@RequestBody @Validated Client client) {
+        return ResponseEntity.ok(JSON.toJSON(clientService.createClient(client)));
     }
 
-    @PUT
-    @RequestMapping("clients/update")
-    @Consumes("application/json")
-    @Produces("application/json")
-    public Response updateClient(@RequestBody @Validated Client client) {
-        return Response.ok(clientService.updateClient(client), MediaType.APPLICATION_JSON).build();
+    @RequestMapping(value = "clients/update",
+            produces = "application/json;charset=UTF-8",
+            consumes = "application/json",
+            method = RequestMethod.PUT)
+    public ResponseEntity updateClient(@RequestBody @Validated Client client) {
+        return ResponseEntity.ok(JSON.toJSON(clientService.updateClient(client)));
     }
 
-    @DELETE
-    @RequestMapping("clients/delete/{id}")
-    public Response deleteClient(@PathVariable("id") String clientId) {
-        return Response.ok(clientService.deleteClient(clientId), MediaType.APPLICATION_JSON).build();
+    @RequestMapping(value = "clients/delete/{id}",
+            produces = "application/json;charset=UTF-8",
+            consumes = "application/json",
+            method = RequestMethod.DELETE)
+    public ResponseEntity deleteClient(@PathVariable("id") String clientId) {
+        return ResponseEntity.ok(JSON.toJSON(clientService.deleteClient(clientId)));
     }
 }

@@ -1,4 +1,4 @@
-package com.ahok.cuber.util;
+package com.ahok.cuber.util.http;
 
 import org.codehaus.jackson.map.ObjectMapper;
 
