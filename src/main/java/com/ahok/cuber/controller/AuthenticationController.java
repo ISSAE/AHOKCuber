@@ -1,8 +1,10 @@
 package com.ahok.cuber.controller;
 
-import com.ahok.cuber.controller.reqpojo.ClientLogin;
+import com.ahok.cuber.controller.reqpojo.UserLogin;
 import com.ahok.cuber.entity.Client;
+import com.ahok.cuber.entity.Driver;
 import com.ahok.cuber.service.ClientService;
+import com.ahok.cuber.service.DriverService;
 import com.ahok.cuber.util.Config;
 import com.ahok.cuber.util.http.Response;
 import com.auth0.jwt.JWT;
@@ -18,14 +20,29 @@ public class AuthenticationController {
     @Autowired
     private ClientService clientService;
 
+    @Autowired
+    private DriverService driverService;
+
     @RequestMapping(value = "auth/token",
             produces = "application/json;charset=UTF-8",
             consumes = "application/json",
             method = RequestMethod.POST)
-    public ResponseEntity token(@RequestBody ClientLogin clf) {
-        Client client = clientService.getAuth(clf.getEmail(), clf.getPassword());
+    public ResponseEntity token(@RequestBody UserLogin user) {
+        Client client = clientService.getAuth(user.getEmail(), user.getPassword());
 
         if (client == null) return Response.badRequest("Wrong username or password");
+
+        return generateToken();
+    }
+
+    @RequestMapping(value = "auth/driver/token",
+            produces = "application/json;charset=UTF-8",
+            consumes = "application/json",
+            method = RequestMethod.POST)
+    public ResponseEntity driverToken(@RequestBody UserLogin user) {
+        Driver driver = driverService.getAuth(user.getEmail(), user.getPassword());
+
+        if (driver == null) return Response.badRequest("Wrong username or password");
 
         return generateToken();
     }
@@ -36,6 +53,15 @@ public class AuthenticationController {
             method = RequestMethod.POST)
     public ResponseEntity register(@RequestBody Client client) {
         clientService.createClient(client);
+        return generateToken();
+    }
+
+    @RequestMapping(value = "auth/driver/register",
+            produces = "application/json;charset=UTF-8",
+            consumes = "application/json",
+            method = RequestMethod.POST)
+    public ResponseEntity driverRegister(@RequestBody Driver driver) {
+        driverService.createDriver(driver);
         return generateToken();
     }
 

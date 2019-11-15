@@ -1,0 +1,1575 @@
+{
+	"id": "3071b739-49d5-01a6-afab-3b73c7fe9a6a",
+	"name": "Cuber",
+	"description": "",
+	"order": [],
+	"folders": [
+		{
+			"name": "Client",
+			"description": "",
+			"collectionId": "3071b739-49d5-01a6-afab-3b73c7fe9a6a",
+			"order": [
+				"c0a41122-8da7-ef4e-0930-9043398c1dba",
+				"190905c0-e85e-a515-3e05-3f77d1e67d4e",
+				"a048cc54-9560-d164-b5b1-b14f2890f250",
+				"766a781f-12f4-f748-50e0-6fff1d6ba59a",
+				"52bca2f6-e98b-f7d6-962d-f85934d5028a",
+				"52675784-5b22-a3d5-00b4-836dfb4d9e84",
+				"d514b224-6abf-67c0-e169-a358a1ecfe53"
+			],
+			"owner": 0,
+			"folders_order": [],
+			"id": "2262acc6-0f60-1775-86a1-aadaddcf411a"
+		},
+		{
+			"name": "Driver",
+			"description": "",
+			"collectionId": "3071b739-49d5-01a6-afab-3b73c7fe9a6a",
+			"order": [
+				"8e2fe22d-fae8-88e8-6d2f-cbbac766c7b5",
+				"2d30f588-38a6-19fb-0f9f-747b761dc0dc",
+				"2f89bc09-758a-9024-5bf2-81671489445d",
+				"a67728af-7140-9e46-959d-8eef47497718",
+				"9d9850d1-fa8a-1cfe-0062-08e494ad443e",
+				"46e07adc-46f3-8417-ca61-91f0169542aa",
+				"918def02-c275-9e20-06f2-78e2d391525c"
+			],
+			"owner": 0,
+			"folders_order": [],
+			"id": "07e9058e-509d-86ab-54a7-d3f6dfb02b88"
+		}
+	],
+	"folders_order": [
+		"2262acc6-0f60-1775-86a1-aadaddcf411a",
+		"07e9058e-509d-86ab-54a7-d3f6dfb02b88"
+	],
+	"timestamp": 1571055959043,
+	"owner": 0,
+	"public": false,
+	"requests": [
+		{
+			"id": "190905c0-e85e-a515-3e05-3f77d1e67d4e",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8080/cuber/clients/add",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1573822158552,
+			"name": "Add new Client",
+			"description": "Add new Client",
+			"collectionId": "3071b739-49d5-01a6-afab-3b73c7fe9a6a",
+			"responses": [
+				{
+					"status": "",
+					"responseCode": {
+						"code": 200,
+						"name": "OK",
+						"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+					},
+					"time": 73,
+					"headers": [
+						{
+							"name": "content-length",
+							"key": "content-length",
+							"value": "75",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"name": "content-type",
+							"key": "content-type",
+							"value": "application/json;charset=UTF-8",
+							"description": "The mime type of this content"
+						},
+						{
+							"name": "date",
+							"key": "date",
+							"value": "Fri, 15 Nov 2019 11:06:46 GMT",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"name": "server",
+							"key": "server",
+							"value": "Apache TomEE",
+							"description": "A name for the server"
+						}
+					],
+					"cookies": [],
+					"mime": "",
+					"text": "{\"success\":true,\"body\":\"e6c3cdf3-26d0-4627-849a-541f8965d085\",\"status\":200}",
+					"language": "json",
+					"rawDataType": "text",
+					"previewType": "text",
+					"searchResultScrolledTo": -1,
+					"forceNoPretty": false,
+					"write": true,
+					"empty": false,
+					"failed": false,
+					"name": "Add new Client",
+					"id": "7c985d21-a20c-07a4-6299-50aa806e5360",
+					"request": {
+						"url": "http://localhost:8080/cuber/clients/add",
+						"pathVariables": {},
+						"pathVariableData": [],
+						"queryParams": [],
+						"headerData": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": "",
+								"enabled": true
+							}
+						],
+						"headers": "Content-Type: application/json\n",
+						"data": "{\n\t\"first_name\": \"Osman\",\n\t\"last_name\": \"KHODER\",\n\t\"phone_number\": \"71769766\",\n\t\"email\": \"{{email}}\",\n\t\"password\": \"{{pass}}\",\n\t\"gender\": \"MALE\"\n}",
+						"method": "POST",
+						"dataMode": "raw"
+					}
+				}
+			],
+			"rawModeData": "{\n\t\"first_name\": \"Osman\",\n\t\"last_name\": \"KHODER\",\n\t\"phone_number\": \"71769766\",\n\t\"email\": \"osmankhoder7@gmail.com\",\n\t\"password\": \"123qweasdzxc_\",\n\t\"gender\": \"MALE\"\n}"
+		},
+		{
+			"id": "2d30f588-38a6-19fb-0f9f-747b761dc0dc",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8080/cuber/drivers/add",
+			"folder": "07e9058e-509d-86ab-54a7-d3f6dfb02b88",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1573833280647,
+			"name": "Add new Driver",
+			"description": "Add new Client",
+			"collectionId": "3071b739-49d5-01a6-afab-3b73c7fe9a6a",
+			"responses": [
+				{
+					"status": "",
+					"responseCode": {
+						"code": 200,
+						"name": "OK",
+						"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+					},
+					"time": 73,
+					"headers": [
+						{
+							"name": "content-length",
+							"key": "content-length",
+							"value": "75",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"name": "content-type",
+							"key": "content-type",
+							"value": "application/json;charset=UTF-8",
+							"description": "The mime type of this content"
+						},
+						{
+							"name": "date",
+							"key": "date",
+							"value": "Fri, 15 Nov 2019 11:06:46 GMT",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"name": "server",
+							"key": "server",
+							"value": "Apache TomEE",
+							"description": "A name for the server"
+						}
+					],
+					"cookies": [],
+					"mime": "",
+					"text": "{\"success\":true,\"body\":\"e6c3cdf3-26d0-4627-849a-541f8965d085\",\"status\":200}",
+					"language": "json",
+					"rawDataType": "text",
+					"previewType": "text",
+					"searchResultScrolledTo": -1,
+					"forceNoPretty": false,
+					"write": true,
+					"empty": false,
+					"failed": false,
+					"name": "Add new Client",
+					"id": "66e78c63-3e32-d2fb-305c-62551d769dad",
+					"request": "2d30f588-38a6-19fb-0f9f-747b761dc0dc",
+					"requestObject": {
+						"url": "http://localhost:8080/cuber/clients/add",
+						"pathVariables": {},
+						"pathVariableData": [],
+						"queryParams": [],
+						"headerData": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": "",
+								"enabled": true
+							}
+						],
+						"headers": "Content-Type: application/json\n",
+						"data": "{\n\t\"first_name\": \"Osman\",\n\t\"last_name\": \"KHODER\",\n\t\"phone_number\": \"71769766\",\n\t\"email\": \"{{email}}\",\n\t\"password\": \"{{pass}}\",\n\t\"gender\": \"MALE\"\n}",
+						"method": "POST",
+						"dataMode": "raw"
+					}
+				}
+			],
+			"rawModeData": "{\n\t\"first_name\": \"Osman\",\n\t\"last_name\": \"KHODER\",\n\t\"phone_number\": \"71769766\",\n\t\"email\": \"osmankhoder7@gmail.com\",\n\t\"password\": \"123qweasdzxc_\",\n\t\"gender\": \"MALE\",\n\t\"car_model\": \"e39 2002\",\n\t\"car_registration_number\": \"256655\"\n\t\n}"
+		},
+		{
+			"id": "2f89bc09-758a-9024-5bf2-81671489445d",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8080/cuber/auth/driver/register",
+			"folder": "07e9058e-509d-86ab-54a7-d3f6dfb02b88",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1573833085733,
+			"name": "Register Driver",
+			"description": "",
+			"collectionId": "3071b739-49d5-01a6-afab-3b73c7fe9a6a",
+			"responses": [
+				{
+					"status": "",
+					"responseCode": {
+						"code": 200,
+						"name": "OK",
+						"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+					},
+					"time": 70,
+					"headers": [
+						{
+							"name": "content-length",
+							"key": "content-length",
+							"value": "140",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"name": "content-type",
+							"key": "content-type",
+							"value": "application/json;charset=UTF-8",
+							"description": "The mime type of this content"
+						},
+						{
+							"name": "date",
+							"key": "date",
+							"value": "Fri, 15 Nov 2019 11:04:26 GMT",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"name": "server",
+							"key": "server",
+							"value": "Apache TomEE",
+							"description": "A name for the server"
+						}
+					],
+					"cookies": [],
+					"mime": "",
+					"text": "{\"success\":true,\"body\":\"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJjdWJlciJ9.BtKS89xa9YnHKdYuDAG4M6UuJsU4xjkDla9xFtHqViU\",\"status\":200}",
+					"language": "json",
+					"rawDataType": "text",
+					"previewType": "text",
+					"searchResultScrolledTo": -1,
+					"forceNoPretty": false,
+					"write": true,
+					"empty": false,
+					"failed": false,
+					"name": "Register Client",
+					"id": "2510a21e-0b78-a8f5-a3cd-1fefeedf5ed2",
+					"request": "2f89bc09-758a-9024-5bf2-81671489445d",
+					"requestObject": {
+						"url": "http://localhost:8080/cuber/auth/client/register",
+						"pathVariables": {},
+						"pathVariableData": [],
+						"queryParams": [],
+						"headerData": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": "",
+								"enabled": true
+							}
+						],
+						"headers": "Content-Type: application/json\n",
+						"data": "{\n\t\"first_name\": \"Osman\",\n\t\"last_name\": \"KHODER\",\n\t\"phone_number\": \"71769766\",\n\t\"email\": \"{{email}}\",\n\t\"password\": \"{{pass}}\",\n\t\"gender\": \"MALE\"\n}",
+						"method": "POST",
+						"dataMode": "raw"
+					}
+				}
+			],
+			"rawModeData": "{\n\t\"first_name\": \"Osman\",\n\t\"last_name\": \"KHODER\",\n\t\"phone_number\": \"71769766\",\n\t\"email\": \"osmankhoder7@gmail.com\",\n\t\"password\": \"123qweasdzxc_\",\n\t\"gender\": \"MALE\",\n\t\"car_model\": \"e39 2002\",\n\t\"car_registration_number\": \"256655\"\n}"
+		},
+		{
+			"id": "46e07adc-46f3-8417-ca61-91f0169542aa",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8080/cuber/clients/update",
+			"folder": "07e9058e-509d-86ab-54a7-d3f6dfb02b88",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "PUT",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1573833467134,
+			"name": "Update Driver",
+			"description": "Add new Client",
+			"collectionId": "3071b739-49d5-01a6-afab-3b73c7fe9a6a",
+			"responses": [
+				{
+					"status": "",
+					"responseCode": {
+						"code": 200,
+						"name": "OK",
+						"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+					},
+					"time": 73,
+					"headers": [
+						{
+							"name": "content-length",
+							"key": "content-length",
+							"value": "75",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"name": "content-type",
+							"key": "content-type",
+							"value": "application/json;charset=UTF-8",
+							"description": "The mime type of this content"
+						},
+						{
+							"name": "date",
+							"key": "date",
+							"value": "Fri, 15 Nov 2019 11:06:46 GMT",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"name": "server",
+							"key": "server",
+							"value": "Apache TomEE",
+							"description": "A name for the server"
+						}
+					],
+					"cookies": [],
+					"mime": "",
+					"text": "{\"success\":true,\"body\":\"e6c3cdf3-26d0-4627-849a-541f8965d085\",\"status\":200}",
+					"language": "json",
+					"rawDataType": "text",
+					"previewType": "text",
+					"searchResultScrolledTo": -1,
+					"forceNoPretty": false,
+					"write": true,
+					"empty": false,
+					"failed": false,
+					"name": "Add new Client",
+					"id": "1ef1ce40-fe78-30d9-baa1-6a63b7ff621b",
+					"request": "46e07adc-46f3-8417-ca61-91f0169542aa",
+					"requestObject": {
+						"url": "http://localhost:8080/cuber/clients/add",
+						"pathVariables": {},
+						"pathVariableData": [],
+						"queryParams": [],
+						"headerData": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": "",
+								"enabled": true
+							}
+						],
+						"headers": "Content-Type: application/json\n",
+						"data": "{\n\t\"first_name\": \"Osman\",\n\t\"last_name\": \"KHODER\",\n\t\"phone_number\": \"71769766\",\n\t\"email\": \"{{email}}\",\n\t\"password\": \"{{pass}}\",\n\t\"gender\": \"MALE\"\n}",
+						"method": "POST",
+						"dataMode": "raw"
+					}
+				}
+			],
+			"rawModeData": "{\n\t\"id\": \"cef3dba4-e011-41ac-b19b-7a20ef99871a\",\n\t\"first_name\": \"Osman\",\n\t\"last_name\": \"Edited Last name\",\n\t\"phone_number\": \"71769766\",\n\t\"email\": \"{{email}}\",\n\t\"password\": \"{{pass}}\",\n\t\"gender\": \"MALE\",\n\t\"car_model\": \"e39 2002\",\n\t\"car_registration_number\": \"256655\"\n}"
+		},
+		{
+			"id": "52675784-5b22-a3d5-00b4-836dfb4d9e84",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8080/cuber/clients/update",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "PUT",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1573822154264,
+			"name": "Update Client",
+			"description": "Add new Client",
+			"collectionId": "3071b739-49d5-01a6-afab-3b73c7fe9a6a",
+			"responses": [
+				{
+					"status": "",
+					"responseCode": {
+						"code": 200,
+						"name": "OK",
+						"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+					},
+					"time": 73,
+					"headers": [
+						{
+							"name": "content-length",
+							"key": "content-length",
+							"value": "75",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"name": "content-type",
+							"key": "content-type",
+							"value": "application/json;charset=UTF-8",
+							"description": "The mime type of this content"
+						},
+						{
+							"name": "date",
+							"key": "date",
+							"value": "Fri, 15 Nov 2019 11:06:46 GMT",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"name": "server",
+							"key": "server",
+							"value": "Apache TomEE",
+							"description": "A name for the server"
+						}
+					],
+					"cookies": [],
+					"mime": "",
+					"text": "{\"success\":true,\"body\":\"e6c3cdf3-26d0-4627-849a-541f8965d085\",\"status\":200}",
+					"language": "json",
+					"rawDataType": "text",
+					"previewType": "text",
+					"searchResultScrolledTo": -1,
+					"forceNoPretty": false,
+					"write": true,
+					"empty": false,
+					"failed": false,
+					"name": "Add new Client",
+					"id": "fb71cd7a-dbd9-783e-ad61-4cfcb2ed2e17",
+					"request": "52675784-5b22-a3d5-00b4-836dfb4d9e84",
+					"requestObject": {
+						"url": "http://localhost:8080/cuber/clients/add",
+						"pathVariables": {},
+						"pathVariableData": [],
+						"queryParams": [],
+						"headerData": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": "",
+								"enabled": true
+							}
+						],
+						"headers": "Content-Type: application/json\n",
+						"data": "{\n\t\"first_name\": \"Osman\",\n\t\"last_name\": \"KHODER\",\n\t\"phone_number\": \"71769766\",\n\t\"email\": \"{{email}}\",\n\t\"password\": \"{{pass}}\",\n\t\"gender\": \"MALE\"\n}",
+						"method": "POST",
+						"dataMode": "raw"
+					}
+				}
+			],
+			"rawModeData": "{\n\t\"id\": \"02036e59-79fa-43e8-a100-547d627c7219\",\n\t\"first_name\": \"Osman\",\n\t\"last_name\": \"Edited Last name\",\n\t\"phone_number\": \"71769766\",\n\t\"email\": \"{{email}}\",\n\t\"password\": \"{{pass}}\",\n\t\"gender\": \"MALE\"\n}"
+		},
+		{
+			"id": "52bca2f6-e98b-f7d6-962d-f85934d5028a",
+			"headers": "",
+			"headerData": [],
+			"url": "http://localhost:8080/cuber/clients/all",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1573822156904,
+			"name": "Get All Clients",
+			"description": "",
+			"collectionId": "3071b739-49d5-01a6-afab-3b73c7fe9a6a",
+			"responses": [
+				{
+					"status": "",
+					"responseCode": {
+						"code": 200,
+						"name": "OK",
+						"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+					},
+					"time": 62,
+					"headers": [
+						{
+							"name": "content-length",
+							"key": "content-length",
+							"value": "8525",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"name": "content-type",
+							"key": "content-type",
+							"value": "application/json;charset=UTF-8",
+							"description": "The mime type of this content"
+						},
+						{
+							"name": "date",
+							"key": "date",
+							"value": "Fri, 15 Nov 2019 11:07:07 GMT",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"name": "server",
+							"key": "server",
+							"value": "Apache TomEE",
+							"description": "A name for the server"
+						}
+					],
+					"cookies": [],
+					"mime": "",
+					"text": "{\"success\":true,\"body\":[{\"id\":\"02036e59-79fa-43e8-a100-547d627c7219\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"179c8e8e-3a5e-40e3-9a64-e1f5ad8363ef\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"1a21f615-96a3-4b41-806a-556705fa31b2\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"1d64196b-3869-4dbb-8463-8c05bfb90ac4\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"1e771567-e353-4f48-a63f-5924fc60b9a2\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"2642111c-a0e2-4ec3-a27d-cad13819ae40\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"30b60505-6f66-48ef-b944-5fea3ef4809a\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"30cce7cb-071f-41cc-92d4-c51b5d6fd36f\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"32ba4b3b-dd82-4a04-8faa-8204bb56d8b1\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"33c6c1d3-eb4f-416d-97e9-a59433f19614\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"37b0a94b-0f02-484d-b7af-64edb7ad3843\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"3d5b98b7-b30b-4cc3-a934-48e397d4d06c\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"59bc1c89-d6e5-4bba-b15b-8c9b947dbeb3\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"5c551975-fe40-4b58-b1ab-779f238f7b4f\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"5ebdc9d3-383b-46f3-ac08-4442976311a0\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"696cb459-9bec-42a0-8871-28d0e3c80a46\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"77acba9c-84a9-4f6b-8fd5-8290fae67ca9\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"7f193e0d-48ac-49f4-acd0-42da6f4fc4f3\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"7fdef499-7bde-459c-b735-7a33adcece0d\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"805cecaa-1605-4703-9f8c-5710e135f324\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"80aac610-76d7-4e7b-bc4d-77a8daf2dc42\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"912c4b7d-10c3-4041-b4a8-61fe81ce202d\",\"first_name\":null,\"last_name\":null,\"phone_number\":null,\"email\":null,\"gender\":null,\"created_at\":null,\"updated_at\":null},{\"id\":\"9b78cda3-801f-4d08-bd4d-212eeca1aa1b\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"9f4e9224-fc66-45d3-a27e-92b2b1197974\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"a2a97bd3-240b-4ae5-a357-d78726c20986\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"a5038280-1d63-4cc3-aa2d-efbafaa21020\",\"first_name\":null,\"last_name\":null,\"phone_number\":null,\"email\":null,\"gender\":null,\"created_at\":null,\"updated_at\":null},{\"id\":\"a73e6171-157f-4ac3-816f-20e3239d5be9\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"b28ced44-2deb-4720-bb36-c7f3ab72b503\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"b3d4a4ef-c98a-4781-966d-fb3705107a71\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"bfc89e70-c7c6-42cb-9622-9741587d7588\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"cbbf4822-f44b-46bb-be9f-4361dceaa2f2\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"cd37b83f-7c8c-4891-8e80-063a42bba950\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"d65be940-d3c1-446d-be7f-716111cdf974\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"dc14a2f5-1965-4c03-a1aa-1addf7eb33cb\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"dd001c21-c86a-4fa0-a10f-3fdd61af9c90\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"e3a8621b-f9a6-4290-b888-9a6f64c6feba\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"e5769ab8-c1a9-4377-8975-02e32eb8269a\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"e6c3cdf3-26d0-4627-849a-541f8965d085\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"ee1372d1-529e-40f6-a9b9-af5c7b62215d\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"f5af788e-2070-4b32-aaf4-7ba162b047a6\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"f7790b31-1ee6-43c4-966c-b929857ec80d\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"f916030e-c862-42a3-8f65-dc7275666704\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"fbd620f5-45d6-4659-b53d-81c422190d1c\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null}],\"status\":200}",
+					"language": "json",
+					"rawDataType": "text",
+					"previewType": "text",
+					"searchResultScrolledTo": -1,
+					"forceNoPretty": false,
+					"write": true,
+					"empty": false,
+					"failed": false,
+					"name": "Get All Clients",
+					"id": "8d6695ad-b96e-82ec-8134-89eaf918fbae",
+					"request": {
+						"url": "http://localhost:8080/cuber/clients/all",
+						"pathVariables": {},
+						"pathVariableData": [],
+						"queryParams": [],
+						"headerData": [],
+						"headers": "",
+						"data": null,
+						"method": "GET",
+						"dataMode": "params"
+					}
+				}
+			]
+		},
+		{
+			"id": "766a781f-12f4-f748-50e0-6fff1d6ba59a",
+			"headers": "",
+			"headerData": [],
+			"url": "http://localhost:8080/cuber/clients/get/e6c3cdf3-26d0-4627-849a-541f8965d085",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1573822155456,
+			"name": "Get Client",
+			"description": "",
+			"collectionId": "3071b739-49d5-01a6-afab-3b73c7fe9a6a",
+			"responses": [
+				{
+					"status": "",
+					"responseCode": {
+						"code": 200,
+						"name": "OK",
+						"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+					},
+					"time": 62,
+					"headers": [
+						{
+							"name": "content-length",
+							"key": "content-length",
+							"value": "8525",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"name": "content-type",
+							"key": "content-type",
+							"value": "application/json;charset=UTF-8",
+							"description": "The mime type of this content"
+						},
+						{
+							"name": "date",
+							"key": "date",
+							"value": "Fri, 15 Nov 2019 11:07:07 GMT",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"name": "server",
+							"key": "server",
+							"value": "Apache TomEE",
+							"description": "A name for the server"
+						}
+					],
+					"cookies": [],
+					"mime": "",
+					"text": "{\"success\":true,\"body\":[{\"id\":\"02036e59-79fa-43e8-a100-547d627c7219\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"179c8e8e-3a5e-40e3-9a64-e1f5ad8363ef\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"1a21f615-96a3-4b41-806a-556705fa31b2\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"1d64196b-3869-4dbb-8463-8c05bfb90ac4\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"1e771567-e353-4f48-a63f-5924fc60b9a2\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"2642111c-a0e2-4ec3-a27d-cad13819ae40\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"30b60505-6f66-48ef-b944-5fea3ef4809a\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"30cce7cb-071f-41cc-92d4-c51b5d6fd36f\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"32ba4b3b-dd82-4a04-8faa-8204bb56d8b1\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"33c6c1d3-eb4f-416d-97e9-a59433f19614\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"37b0a94b-0f02-484d-b7af-64edb7ad3843\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"3d5b98b7-b30b-4cc3-a934-48e397d4d06c\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"59bc1c89-d6e5-4bba-b15b-8c9b947dbeb3\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"5c551975-fe40-4b58-b1ab-779f238f7b4f\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"5ebdc9d3-383b-46f3-ac08-4442976311a0\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"696cb459-9bec-42a0-8871-28d0e3c80a46\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"77acba9c-84a9-4f6b-8fd5-8290fae67ca9\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"7f193e0d-48ac-49f4-acd0-42da6f4fc4f3\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"7fdef499-7bde-459c-b735-7a33adcece0d\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"805cecaa-1605-4703-9f8c-5710e135f324\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"80aac610-76d7-4e7b-bc4d-77a8daf2dc42\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"912c4b7d-10c3-4041-b4a8-61fe81ce202d\",\"first_name\":null,\"last_name\":null,\"phone_number\":null,\"email\":null,\"gender\":null,\"created_at\":null,\"updated_at\":null},{\"id\":\"9b78cda3-801f-4d08-bd4d-212eeca1aa1b\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"9f4e9224-fc66-45d3-a27e-92b2b1197974\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"a2a97bd3-240b-4ae5-a357-d78726c20986\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"a5038280-1d63-4cc3-aa2d-efbafaa21020\",\"first_name\":null,\"last_name\":null,\"phone_number\":null,\"email\":null,\"gender\":null,\"created_at\":null,\"updated_at\":null},{\"id\":\"a73e6171-157f-4ac3-816f-20e3239d5be9\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"b28ced44-2deb-4720-bb36-c7f3ab72b503\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"b3d4a4ef-c98a-4781-966d-fb3705107a71\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"bfc89e70-c7c6-42cb-9622-9741587d7588\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"cbbf4822-f44b-46bb-be9f-4361dceaa2f2\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"cd37b83f-7c8c-4891-8e80-063a42bba950\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"d65be940-d3c1-446d-be7f-716111cdf974\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"dc14a2f5-1965-4c03-a1aa-1addf7eb33cb\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"dd001c21-c86a-4fa0-a10f-3fdd61af9c90\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"e3a8621b-f9a6-4290-b888-9a6f64c6feba\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"e5769ab8-c1a9-4377-8975-02e32eb8269a\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"e6c3cdf3-26d0-4627-849a-541f8965d085\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"ee1372d1-529e-40f6-a9b9-af5c7b62215d\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"f5af788e-2070-4b32-aaf4-7ba162b047a6\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"f7790b31-1ee6-43c4-966c-b929857ec80d\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"f916030e-c862-42a3-8f65-dc7275666704\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"fbd620f5-45d6-4659-b53d-81c422190d1c\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null}],\"status\":200}",
+					"language": "json",
+					"rawDataType": "text",
+					"previewType": "text",
+					"searchResultScrolledTo": -1,
+					"forceNoPretty": false,
+					"write": true,
+					"empty": false,
+					"failed": false,
+					"name": "Get All Clients",
+					"id": "4296b770-73cc-cf3d-5f81-62d6bf9230e4",
+					"request": "766a781f-12f4-f748-50e0-6fff1d6ba59a",
+					"requestObject": {
+						"url": "http://localhost:8080/cuber/clients/all",
+						"pathVariables": {},
+						"pathVariableData": [],
+						"queryParams": [],
+						"headerData": [],
+						"headers": "",
+						"data": null,
+						"method": "GET",
+						"dataMode": "params"
+					}
+				},
+				{
+					"status": "",
+					"responseCode": {
+						"code": 200,
+						"name": "OK",
+						"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+					},
+					"time": 78,
+					"headers": [
+						{
+							"name": "content-length",
+							"key": "content-length",
+							"value": "235",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"name": "content-type",
+							"key": "content-type",
+							"value": "application/json;charset=UTF-8",
+							"description": "The mime type of this content"
+						},
+						{
+							"name": "date",
+							"key": "date",
+							"value": "Fri, 15 Nov 2019 11:07:44 GMT",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"name": "server",
+							"key": "server",
+							"value": "Apache TomEE",
+							"description": "A name for the server"
+						}
+					],
+					"cookies": [],
+					"mime": "",
+					"text": "{\"success\":true,\"body\":{\"id\":\"e6c3cdf3-26d0-4627-849a-541f8965d085\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},\"status\":200}",
+					"language": "json",
+					"rawDataType": "text",
+					"previewType": "text",
+					"searchResultScrolledTo": -1,
+					"forceNoPretty": false,
+					"write": true,
+					"empty": false,
+					"failed": false,
+					"name": "Get Client",
+					"id": "85a62318-5f5d-cf52-0eb1-c5b03548ee5d",
+					"request": {
+						"url": "http://localhost:8080/cuber/clients/get/e6c3cdf3-26d0-4627-849a-541f8965d085",
+						"pathVariables": {},
+						"pathVariableData": [],
+						"queryParams": [],
+						"headerData": [],
+						"headers": "",
+						"data": null,
+						"method": "GET",
+						"dataMode": "params"
+					}
+				}
+			]
+		},
+		{
+			"id": "8e2fe22d-fae8-88e8-6d2f-cbbac766c7b5",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8080/cuber/auth/driver/token",
+			"folder": "07e9058e-509d-86ab-54a7-d3f6dfb02b88",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1573833277951,
+			"name": "Login",
+			"description": "",
+			"collectionId": "3071b739-49d5-01a6-afab-3b73c7fe9a6a",
+			"responses": [
+				{
+					"status": "",
+					"responseCode": {
+						"code": 200,
+						"name": "OK",
+						"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+					},
+					"time": 69,
+					"headers": [
+						{
+							"name": "content-length",
+							"key": "content-length",
+							"value": "140",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"name": "content-type",
+							"key": "content-type",
+							"value": "application/json;charset=UTF-8",
+							"description": "The mime type of this content"
+						},
+						{
+							"name": "date",
+							"key": "date",
+							"value": "Fri, 15 Nov 2019 11:04:22 GMT",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"name": "server",
+							"key": "server",
+							"value": "Apache TomEE",
+							"description": "A name for the server"
+						}
+					],
+					"cookies": [],
+					"mime": "",
+					"text": "{\"success\":true,\"body\":\"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJjdWJlciJ9.BtKS89xa9YnHKdYuDAG4M6UuJsU4xjkDla9xFtHqViU\",\"status\":200}",
+					"language": "json",
+					"rawDataType": "text",
+					"previewType": "text",
+					"searchResultScrolledTo": -1,
+					"forceNoPretty": false,
+					"write": true,
+					"empty": false,
+					"failed": false,
+					"name": "Login",
+					"id": "79360171-3c8c-ff50-6545-50caefaaa189",
+					"request": "8e2fe22d-fae8-88e8-6d2f-cbbac766c7b5",
+					"requestObject": {
+						"url": "http://localhost:8080/cuber/auth/token",
+						"pathVariables": {},
+						"pathVariableData": [],
+						"queryParams": [],
+						"headerData": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"name": "Content-Type",
+								"value": "application/json",
+								"description": "",
+								"enabled": true
+							}
+						],
+						"headers": "Content-Type: application/json\n",
+						"data": "{\n\t\"email\": \"{{email}}\",\n\t\"password\": \"{{pass}}\"\n}",
+						"method": "POST",
+						"dataMode": "raw"
+					}
+				}
+			],
+			"rawModeData": "{\n\t\"email\": \"{{email}}\",\n\t\"password\": \"{{pass}}\"\n}"
+		},
+		{
+			"id": "918def02-c275-9e20-06f2-78e2d391525c",
+			"headers": "",
+			"headerData": [],
+			"url": "http://localhost:8080/cuber/clients/delete/cef3dba4-e011-41ac-b19b-7a20ef99871a",
+			"folder": "07e9058e-509d-86ab-54a7-d3f6dfb02b88",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "DELETE",
+			"data": null,
+			"dataMode": "params",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1573833474189,
+			"name": "Delete Driver",
+			"description": "",
+			"collectionId": "3071b739-49d5-01a6-afab-3b73c7fe9a6a",
+			"responses": [
+				{
+					"status": "",
+					"responseCode": {
+						"code": 200,
+						"name": "OK",
+						"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+					},
+					"time": 62,
+					"headers": [
+						{
+							"name": "content-length",
+							"key": "content-length",
+							"value": "8525",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"name": "content-type",
+							"key": "content-type",
+							"value": "application/json;charset=UTF-8",
+							"description": "The mime type of this content"
+						},
+						{
+							"name": "date",
+							"key": "date",
+							"value": "Fri, 15 Nov 2019 11:07:07 GMT",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"name": "server",
+							"key": "server",
+							"value": "Apache TomEE",
+							"description": "A name for the server"
+						}
+					],
+					"cookies": [],
+					"mime": "",
+					"text": "{\"success\":true,\"body\":[{\"id\":\"02036e59-79fa-43e8-a100-547d627c7219\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"179c8e8e-3a5e-40e3-9a64-e1f5ad8363ef\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"1a21f615-96a3-4b41-806a-556705fa31b2\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"1d64196b-3869-4dbb-8463-8c05bfb90ac4\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"1e771567-e353-4f48-a63f-5924fc60b9a2\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"2642111c-a0e2-4ec3-a27d-cad13819ae40\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"30b60505-6f66-48ef-b944-5fea3ef4809a\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"30cce7cb-071f-41cc-92d4-c51b5d6fd36f\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"32ba4b3b-dd82-4a04-8faa-8204bb56d8b1\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"33c6c1d3-eb4f-416d-97e9-a59433f19614\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"37b0a94b-0f02-484d-b7af-64edb7ad3843\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"3d5b98b7-b30b-4cc3-a934-48e397d4d06c\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"59bc1c89-d6e5-4bba-b15b-8c9b947dbeb3\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"5c551975-fe40-4b58-b1ab-779f238f7b4f\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"5ebdc9d3-383b-46f3-ac08-4442976311a0\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"696cb459-9bec-42a0-8871-28d0e3c80a46\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"77acba9c-84a9-4f6b-8fd5-8290fae67ca9\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"7f193e0d-48ac-49f4-acd0-42da6f4fc4f3\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"7fdef499-7bde-459c-b735-7a33adcece0d\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"805cecaa-1605-4703-9f8c-5710e135f324\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"80aac610-76d7-4e7b-bc4d-77a8daf2dc42\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"912c4b7d-10c3-4041-b4a8-61fe81ce202d\",\"first_name\":null,\"last_name\":null,\"phone_number\":null,\"email\":null,\"gender\":null,\"created_at\":null,\"updated_at\":null},{\"id\":\"9b78cda3-801f-4d08-bd4d-212eeca1aa1b\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"9f4e9224-fc66-45d3-a27e-92b2b1197974\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"a2a97bd3-240b-4ae5-a357-d78726c20986\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"a5038280-1d63-4cc3-aa2d-efbafaa21020\",\"first_name\":null,\"last_name\":null,\"phone_number\":null,\"email\":null,\"gender\":null,\"created_at\":null,\"updated_at\":null},{\"id\":\"a73e6171-157f-4ac3-816f-20e3239d5be9\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"b28ced44-2deb-4720-bb36-c7f3ab72b503\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"b3d4a4ef-c98a-4781-966d-fb3705107a71\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"bfc89e70-c7c6-42cb-9622-9741587d7588\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"cbbf4822-f44b-46bb-be9f-4361dceaa2f2\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"cd37b83f-7c8c-4891-8e80-063a42bba950\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"d65be940-d3c1-446d-be7f-716111cdf974\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"dc14a2f5-1965-4c03-a1aa-1addf7eb33cb\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"dd001c21-c86a-4fa0-a10f-3fdd61af9c90\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"e3a8621b-f9a6-4290-b888-9a6f64c6feba\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"e5769ab8-c1a9-4377-8975-02e32eb8269a\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"e6c3cdf3-26d0-4627-849a-541f8965d085\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"ee1372d1-529e-40f6-a9b9-af5c7b62215d\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"f5af788e-2070-4b32-aaf4-7ba162b047a6\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"f7790b31-1ee6-43c4-966c-b929857ec80d\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"f916030e-c862-42a3-8f65-dc7275666704\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"fbd620f5-45d6-4659-b53d-81c422190d1c\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null}],\"status\":200}",
+					"language": "json",
+					"rawDataType": "text",
+					"previewType": "text",
+					"searchResultScrolledTo": -1,
+					"forceNoPretty": false,
+					"write": true,
+					"empty": false,
+					"failed": false,
+					"name": "Get All Clients",
+					"id": "9fbd9a7f-4f4a-dce4-0fb6-5c7eedba9af3",
+					"request": "918def02-c275-9e20-06f2-78e2d391525c",
+					"requestObject": {
+						"url": "http://localhost:8080/cuber/clients/all",
+						"pathVariables": {},
+						"pathVariableData": [],
+						"queryParams": [],
+						"headerData": [],
+						"headers": "",
+						"data": null,
+						"method": "GET",
+						"dataMode": "params"
+					}
+				},
+				{
+					"status": "",
+					"responseCode": {
+						"code": 200,
+						"name": "OK",
+						"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+					},
+					"time": 78,
+					"headers": [
+						{
+							"name": "content-length",
+							"key": "content-length",
+							"value": "235",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"name": "content-type",
+							"key": "content-type",
+							"value": "application/json;charset=UTF-8",
+							"description": "The mime type of this content"
+						},
+						{
+							"name": "date",
+							"key": "date",
+							"value": "Fri, 15 Nov 2019 11:07:44 GMT",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"name": "server",
+							"key": "server",
+							"value": "Apache TomEE",
+							"description": "A name for the server"
+						}
+					],
+					"cookies": [],
+					"mime": "",
+					"text": "{\"success\":true,\"body\":{\"id\":\"e6c3cdf3-26d0-4627-849a-541f8965d085\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},\"status\":200}",
+					"language": "json",
+					"rawDataType": "text",
+					"previewType": "text",
+					"searchResultScrolledTo": -1,
+					"forceNoPretty": false,
+					"write": true,
+					"empty": false,
+					"failed": false,
+					"name": "Get Client",
+					"id": "5bddf42b-3341-0147-c447-b0a351937d18",
+					"request": "918def02-c275-9e20-06f2-78e2d391525c",
+					"requestObject": {
+						"url": "http://localhost:8080/cuber/clients/get/e6c3cdf3-26d0-4627-849a-541f8965d085",
+						"pathVariables": {},
+						"pathVariableData": [],
+						"queryParams": [],
+						"headerData": [],
+						"headers": "",
+						"data": null,
+						"method": "GET",
+						"dataMode": "params"
+					}
+				}
+			]
+		},
+		{
+			"id": "9d9850d1-fa8a-1cfe-0062-08e494ad443e",
+			"headers": "",
+			"headerData": [],
+			"url": "http://localhost:8080/cuber/drivers/all",
+			"folder": "07e9058e-509d-86ab-54a7-d3f6dfb02b88",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1573825375899,
+			"name": "Get All Drivers",
+			"description": "",
+			"collectionId": "3071b739-49d5-01a6-afab-3b73c7fe9a6a",
+			"responses": [
+				{
+					"status": "",
+					"responseCode": {
+						"code": 200,
+						"name": "OK",
+						"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+					},
+					"time": 62,
+					"headers": [
+						{
+							"name": "content-length",
+							"key": "content-length",
+							"value": "8525",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"name": "content-type",
+							"key": "content-type",
+							"value": "application/json;charset=UTF-8",
+							"description": "The mime type of this content"
+						},
+						{
+							"name": "date",
+							"key": "date",
+							"value": "Fri, 15 Nov 2019 11:07:07 GMT",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"name": "server",
+							"key": "server",
+							"value": "Apache TomEE",
+							"description": "A name for the server"
+						}
+					],
+					"cookies": [],
+					"mime": "",
+					"text": "{\"success\":true,\"body\":[{\"id\":\"02036e59-79fa-43e8-a100-547d627c7219\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"179c8e8e-3a5e-40e3-9a64-e1f5ad8363ef\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"1a21f615-96a3-4b41-806a-556705fa31b2\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"1d64196b-3869-4dbb-8463-8c05bfb90ac4\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"1e771567-e353-4f48-a63f-5924fc60b9a2\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"2642111c-a0e2-4ec3-a27d-cad13819ae40\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"30b60505-6f66-48ef-b944-5fea3ef4809a\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"30cce7cb-071f-41cc-92d4-c51b5d6fd36f\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"32ba4b3b-dd82-4a04-8faa-8204bb56d8b1\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"33c6c1d3-eb4f-416d-97e9-a59433f19614\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"37b0a94b-0f02-484d-b7af-64edb7ad3843\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"3d5b98b7-b30b-4cc3-a934-48e397d4d06c\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"59bc1c89-d6e5-4bba-b15b-8c9b947dbeb3\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"5c551975-fe40-4b58-b1ab-779f238f7b4f\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"5ebdc9d3-383b-46f3-ac08-4442976311a0\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"696cb459-9bec-42a0-8871-28d0e3c80a46\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"77acba9c-84a9-4f6b-8fd5-8290fae67ca9\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"7f193e0d-48ac-49f4-acd0-42da6f4fc4f3\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"7fdef499-7bde-459c-b735-7a33adcece0d\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"805cecaa-1605-4703-9f8c-5710e135f324\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"80aac610-76d7-4e7b-bc4d-77a8daf2dc42\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"912c4b7d-10c3-4041-b4a8-61fe81ce202d\",\"first_name\":null,\"last_name\":null,\"phone_number\":null,\"email\":null,\"gender\":null,\"created_at\":null,\"updated_at\":null},{\"id\":\"9b78cda3-801f-4d08-bd4d-212eeca1aa1b\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"9f4e9224-fc66-45d3-a27e-92b2b1197974\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"a2a97bd3-240b-4ae5-a357-d78726c20986\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"a5038280-1d63-4cc3-aa2d-efbafaa21020\",\"first_name\":null,\"last_name\":null,\"phone_number\":null,\"email\":null,\"gender\":null,\"created_at\":null,\"updated_at\":null},{\"id\":\"a73e6171-157f-4ac3-816f-20e3239d5be9\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"b28ced44-2deb-4720-bb36-c7f3ab72b503\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"b3d4a4ef-c98a-4781-966d-fb3705107a71\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"bfc89e70-c7c6-42cb-9622-9741587d7588\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"cbbf4822-f44b-46bb-be9f-4361dceaa2f2\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"cd37b83f-7c8c-4891-8e80-063a42bba950\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"d65be940-d3c1-446d-be7f-716111cdf974\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"dc14a2f5-1965-4c03-a1aa-1addf7eb33cb\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"dd001c21-c86a-4fa0-a10f-3fdd61af9c90\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"e3a8621b-f9a6-4290-b888-9a6f64c6feba\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"e5769ab8-c1a9-4377-8975-02e32eb8269a\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"e6c3cdf3-26d0-4627-849a-541f8965d085\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"ee1372d1-529e-40f6-a9b9-af5c7b62215d\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"f5af788e-2070-4b32-aaf4-7ba162b047a6\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"f7790b31-1ee6-43c4-966c-b929857ec80d\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"f916030e-c862-42a3-8f65-dc7275666704\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"fbd620f5-45d6-4659-b53d-81c422190d1c\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null}],\"status\":200}",
+					"language": "json",
+					"rawDataType": "text",
+					"previewType": "text",
+					"searchResultScrolledTo": -1,
+					"forceNoPretty": false,
+					"write": true,
+					"empty": false,
+					"failed": false,
+					"name": "Get All Clients",
+					"id": "5c698bfc-2323-00a3-1286-49a1a8e648ec",
+					"request": "9d9850d1-fa8a-1cfe-0062-08e494ad443e",
+					"requestObject": {
+						"url": "http://localhost:8080/cuber/clients/all",
+						"pathVariables": {},
+						"pathVariableData": [],
+						"queryParams": [],
+						"headerData": [],
+						"headers": "",
+						"data": null,
+						"method": "GET",
+						"dataMode": "params"
+					}
+				}
+			]
+		},
+		{
+			"id": "a048cc54-9560-d164-b5b1-b14f2890f250",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8080/cuber/auth/client/register",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1573822159304,
+			"name": "Register Client",
+			"description": "",
+			"collectionId": "3071b739-49d5-01a6-afab-3b73c7fe9a6a",
+			"responses": [
+				{
+					"status": "",
+					"responseCode": {
+						"code": 200,
+						"name": "OK",
+						"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+					},
+					"time": 70,
+					"headers": [
+						{
+							"name": "content-length",
+							"key": "content-length",
+							"value": "140",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"name": "content-type",
+							"key": "content-type",
+							"value": "application/json;charset=UTF-8",
+							"description": "The mime type of this content"
+						},
+						{
+							"name": "date",
+							"key": "date",
+							"value": "Fri, 15 Nov 2019 11:04:26 GMT",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"name": "server",
+							"key": "server",
+							"value": "Apache TomEE",
+							"description": "A name for the server"
+						}
+					],
+					"cookies": [],
+					"mime": "",
+					"text": "{\"success\":true,\"body\":\"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJjdWJlciJ9.BtKS89xa9YnHKdYuDAG4M6UuJsU4xjkDla9xFtHqViU\",\"status\":200}",
+					"language": "json",
+					"rawDataType": "text",
+					"previewType": "text",
+					"searchResultScrolledTo": -1,
+					"forceNoPretty": false,
+					"write": true,
+					"empty": false,
+					"failed": false,
+					"name": "Register Client",
+					"id": "c196b497-fcfb-79c7-1df3-3dbe28303d4d",
+					"request": {
+						"url": "http://localhost:8080/cuber/auth/client/register",
+						"pathVariables": {},
+						"pathVariableData": [],
+						"queryParams": [],
+						"headerData": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": "",
+								"enabled": true
+							}
+						],
+						"headers": "Content-Type: application/json\n",
+						"data": "{\n\t\"first_name\": \"Osman\",\n\t\"last_name\": \"KHODER\",\n\t\"phone_number\": \"71769766\",\n\t\"email\": \"{{email}}\",\n\t\"password\": \"{{pass}}\",\n\t\"gender\": \"MALE\"\n}",
+						"method": "POST",
+						"dataMode": "raw"
+					}
+				}
+			],
+			"rawModeData": "{\n\t\"first_name\": \"Osman\",\n\t\"last_name\": \"KHODER\",\n\t\"phone_number\": \"71769766\",\n\t\"email\": \"osmankhoder7@gmail.com\",\n\t\"password\": \"123qweasdzxc_\",\n\t\"gender\": \"MALE\"\n}"
+		},
+		{
+			"id": "a67728af-7140-9e46-959d-8eef47497718",
+			"headers": "",
+			"headerData": [],
+			"url": "http://localhost:8080/cuber/drivers/get/cef3dba4-e011-41ac-b19b-7a20ef99871a",
+			"folder": "07e9058e-509d-86ab-54a7-d3f6dfb02b88",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1573833479981,
+			"name": "Get Driver",
+			"description": "",
+			"collectionId": "3071b739-49d5-01a6-afab-3b73c7fe9a6a",
+			"responses": [
+				{
+					"status": "",
+					"responseCode": {
+						"code": 200,
+						"name": "OK",
+						"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+					},
+					"time": 62,
+					"headers": [
+						{
+							"name": "content-length",
+							"key": "content-length",
+							"value": "8525",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"name": "content-type",
+							"key": "content-type",
+							"value": "application/json;charset=UTF-8",
+							"description": "The mime type of this content"
+						},
+						{
+							"name": "date",
+							"key": "date",
+							"value": "Fri, 15 Nov 2019 11:07:07 GMT",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"name": "server",
+							"key": "server",
+							"value": "Apache TomEE",
+							"description": "A name for the server"
+						}
+					],
+					"cookies": [],
+					"mime": "",
+					"text": "{\"success\":true,\"body\":[{\"id\":\"02036e59-79fa-43e8-a100-547d627c7219\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"179c8e8e-3a5e-40e3-9a64-e1f5ad8363ef\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"1a21f615-96a3-4b41-806a-556705fa31b2\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"1d64196b-3869-4dbb-8463-8c05bfb90ac4\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"1e771567-e353-4f48-a63f-5924fc60b9a2\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"2642111c-a0e2-4ec3-a27d-cad13819ae40\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"30b60505-6f66-48ef-b944-5fea3ef4809a\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"30cce7cb-071f-41cc-92d4-c51b5d6fd36f\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"32ba4b3b-dd82-4a04-8faa-8204bb56d8b1\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"33c6c1d3-eb4f-416d-97e9-a59433f19614\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"37b0a94b-0f02-484d-b7af-64edb7ad3843\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"3d5b98b7-b30b-4cc3-a934-48e397d4d06c\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"59bc1c89-d6e5-4bba-b15b-8c9b947dbeb3\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"5c551975-fe40-4b58-b1ab-779f238f7b4f\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"5ebdc9d3-383b-46f3-ac08-4442976311a0\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"696cb459-9bec-42a0-8871-28d0e3c80a46\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"77acba9c-84a9-4f6b-8fd5-8290fae67ca9\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"7f193e0d-48ac-49f4-acd0-42da6f4fc4f3\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"7fdef499-7bde-459c-b735-7a33adcece0d\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"805cecaa-1605-4703-9f8c-5710e135f324\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"80aac610-76d7-4e7b-bc4d-77a8daf2dc42\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"912c4b7d-10c3-4041-b4a8-61fe81ce202d\",\"first_name\":null,\"last_name\":null,\"phone_number\":null,\"email\":null,\"gender\":null,\"created_at\":null,\"updated_at\":null},{\"id\":\"9b78cda3-801f-4d08-bd4d-212eeca1aa1b\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"9f4e9224-fc66-45d3-a27e-92b2b1197974\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"a2a97bd3-240b-4ae5-a357-d78726c20986\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"a5038280-1d63-4cc3-aa2d-efbafaa21020\",\"first_name\":null,\"last_name\":null,\"phone_number\":null,\"email\":null,\"gender\":null,\"created_at\":null,\"updated_at\":null},{\"id\":\"a73e6171-157f-4ac3-816f-20e3239d5be9\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"b28ced44-2deb-4720-bb36-c7f3ab72b503\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"b3d4a4ef-c98a-4781-966d-fb3705107a71\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"bfc89e70-c7c6-42cb-9622-9741587d7588\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"cbbf4822-f44b-46bb-be9f-4361dceaa2f2\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"cd37b83f-7c8c-4891-8e80-063a42bba950\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"d65be940-d3c1-446d-be7f-716111cdf974\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"dc14a2f5-1965-4c03-a1aa-1addf7eb33cb\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"dd001c21-c86a-4fa0-a10f-3fdd61af9c90\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"e3a8621b-f9a6-4290-b888-9a6f64c6feba\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"e5769ab8-c1a9-4377-8975-02e32eb8269a\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"e6c3cdf3-26d0-4627-849a-541f8965d085\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"ee1372d1-529e-40f6-a9b9-af5c7b62215d\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"f5af788e-2070-4b32-aaf4-7ba162b047a6\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"f7790b31-1ee6-43c4-966c-b929857ec80d\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"f916030e-c862-42a3-8f65-dc7275666704\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"fbd620f5-45d6-4659-b53d-81c422190d1c\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null}],\"status\":200}",
+					"language": "json",
+					"rawDataType": "text",
+					"previewType": "text",
+					"searchResultScrolledTo": -1,
+					"forceNoPretty": false,
+					"write": true,
+					"empty": false,
+					"failed": false,
+					"name": "Get All Clients",
+					"id": "308a1928-5b41-cd99-2891-1e3d4a3062b6",
+					"request": "a67728af-7140-9e46-959d-8eef47497718",
+					"requestObject": {
+						"url": "http://localhost:8080/cuber/clients/all",
+						"pathVariables": {},
+						"pathVariableData": [],
+						"queryParams": [],
+						"headerData": [],
+						"headers": "",
+						"data": null,
+						"method": "GET",
+						"dataMode": "params"
+					}
+				},
+				{
+					"status": "",
+					"responseCode": {
+						"code": 200,
+						"name": "OK",
+						"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+					},
+					"time": 78,
+					"headers": [
+						{
+							"name": "content-length",
+							"key": "content-length",
+							"value": "235",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"name": "content-type",
+							"key": "content-type",
+							"value": "application/json;charset=UTF-8",
+							"description": "The mime type of this content"
+						},
+						{
+							"name": "date",
+							"key": "date",
+							"value": "Fri, 15 Nov 2019 11:07:44 GMT",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"name": "server",
+							"key": "server",
+							"value": "Apache TomEE",
+							"description": "A name for the server"
+						}
+					],
+					"cookies": [],
+					"mime": "",
+					"text": "{\"success\":true,\"body\":{\"id\":\"e6c3cdf3-26d0-4627-849a-541f8965d085\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},\"status\":200}",
+					"language": "json",
+					"rawDataType": "text",
+					"previewType": "text",
+					"searchResultScrolledTo": -1,
+					"forceNoPretty": false,
+					"write": true,
+					"empty": false,
+					"failed": false,
+					"name": "Get Client",
+					"id": "19ec1b27-2edb-f460-9567-c8e7dffef98c",
+					"request": "a67728af-7140-9e46-959d-8eef47497718",
+					"requestObject": {
+						"url": "http://localhost:8080/cuber/clients/get/e6c3cdf3-26d0-4627-849a-541f8965d085",
+						"pathVariables": {},
+						"pathVariableData": [],
+						"queryParams": [],
+						"headerData": [],
+						"headers": "",
+						"data": null,
+						"method": "GET",
+						"dataMode": "params"
+					}
+				}
+			]
+		},
+		{
+			"id": "c0a41122-8da7-ef4e-0930-9043398c1dba",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8080/cuber/auth/token",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1573825328267,
+			"name": "Login",
+			"description": "",
+			"collectionId": "3071b739-49d5-01a6-afab-3b73c7fe9a6a",
+			"responses": [
+				{
+					"status": "",
+					"responseCode": {
+						"code": 200,
+						"name": "OK",
+						"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+					},
+					"time": 69,
+					"headers": [
+						{
+							"name": "content-length",
+							"key": "content-length",
+							"value": "140",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"name": "content-type",
+							"key": "content-type",
+							"value": "application/json;charset=UTF-8",
+							"description": "The mime type of this content"
+						},
+						{
+							"name": "date",
+							"key": "date",
+							"value": "Fri, 15 Nov 2019 11:04:22 GMT",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"name": "server",
+							"key": "server",
+							"value": "Apache TomEE",
+							"description": "A name for the server"
+						}
+					],
+					"cookies": [],
+					"mime": "",
+					"text": "{\"success\":true,\"body\":\"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJjdWJlciJ9.BtKS89xa9YnHKdYuDAG4M6UuJsU4xjkDla9xFtHqViU\",\"status\":200}",
+					"language": "json",
+					"rawDataType": "text",
+					"previewType": "text",
+					"searchResultScrolledTo": -1,
+					"forceNoPretty": false,
+					"write": true,
+					"empty": false,
+					"failed": false,
+					"name": "Login",
+					"id": "f2bc3298-86af-cef5-5506-79ef849cfd91",
+					"request": {
+						"url": "http://localhost:8080/cuber/auth/token",
+						"pathVariables": {},
+						"pathVariableData": [],
+						"queryParams": [],
+						"headerData": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"name": "Content-Type",
+								"value": "application/json",
+								"description": "",
+								"enabled": true
+							}
+						],
+						"headers": "Content-Type: application/json\n",
+						"data": "{\n\t\"email\": \"{{email}}\",\n\t\"password\": \"{{pass}}\"\n}",
+						"method": "POST",
+						"dataMode": "raw"
+					}
+				}
+			],
+			"rawModeData": "{\n\t\"email\": \"{{email}}\",\n\t\"password\": \"{{pass}}\"\n}"
+		},
+		{
+			"id": "d514b224-6abf-67c0-e169-a358a1ecfe53",
+			"headers": "",
+			"headerData": [],
+			"url": "http://localhost:8080/cuber/clients/delete/02036e59-79fa-43e8-a100-547d627c7219",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "DELETE",
+			"data": null,
+			"dataMode": "params",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1573822151841,
+			"name": "Delete Client",
+			"description": "",
+			"collectionId": "3071b739-49d5-01a6-afab-3b73c7fe9a6a",
+			"responses": [
+				{
+					"status": "",
+					"responseCode": {
+						"code": 200,
+						"name": "OK",
+						"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+					},
+					"time": 62,
+					"headers": [
+						{
+							"name": "content-length",
+							"key": "content-length",
+							"value": "8525",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"name": "content-type",
+							"key": "content-type",
+							"value": "application/json;charset=UTF-8",
+							"description": "The mime type of this content"
+						},
+						{
+							"name": "date",
+							"key": "date",
+							"value": "Fri, 15 Nov 2019 11:07:07 GMT",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"name": "server",
+							"key": "server",
+							"value": "Apache TomEE",
+							"description": "A name for the server"
+						}
+					],
+					"cookies": [],
+					"mime": "",
+					"text": "{\"success\":true,\"body\":[{\"id\":\"02036e59-79fa-43e8-a100-547d627c7219\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"179c8e8e-3a5e-40e3-9a64-e1f5ad8363ef\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"1a21f615-96a3-4b41-806a-556705fa31b2\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"1d64196b-3869-4dbb-8463-8c05bfb90ac4\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"1e771567-e353-4f48-a63f-5924fc60b9a2\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"2642111c-a0e2-4ec3-a27d-cad13819ae40\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"30b60505-6f66-48ef-b944-5fea3ef4809a\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"30cce7cb-071f-41cc-92d4-c51b5d6fd36f\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"32ba4b3b-dd82-4a04-8faa-8204bb56d8b1\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"33c6c1d3-eb4f-416d-97e9-a59433f19614\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"37b0a94b-0f02-484d-b7af-64edb7ad3843\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"3d5b98b7-b30b-4cc3-a934-48e397d4d06c\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"59bc1c89-d6e5-4bba-b15b-8c9b947dbeb3\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"5c551975-fe40-4b58-b1ab-779f238f7b4f\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"5ebdc9d3-383b-46f3-ac08-4442976311a0\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"696cb459-9bec-42a0-8871-28d0e3c80a46\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"77acba9c-84a9-4f6b-8fd5-8290fae67ca9\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"7f193e0d-48ac-49f4-acd0-42da6f4fc4f3\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"7fdef499-7bde-459c-b735-7a33adcece0d\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"805cecaa-1605-4703-9f8c-5710e135f324\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"80aac610-76d7-4e7b-bc4d-77a8daf2dc42\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"912c4b7d-10c3-4041-b4a8-61fe81ce202d\",\"first_name\":null,\"last_name\":null,\"phone_number\":null,\"email\":null,\"gender\":null,\"created_at\":null,\"updated_at\":null},{\"id\":\"9b78cda3-801f-4d08-bd4d-212eeca1aa1b\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"9f4e9224-fc66-45d3-a27e-92b2b1197974\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"a2a97bd3-240b-4ae5-a357-d78726c20986\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"a5038280-1d63-4cc3-aa2d-efbafaa21020\",\"first_name\":null,\"last_name\":null,\"phone_number\":null,\"email\":null,\"gender\":null,\"created_at\":null,\"updated_at\":null},{\"id\":\"a73e6171-157f-4ac3-816f-20e3239d5be9\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"b28ced44-2deb-4720-bb36-c7f3ab72b503\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"b3d4a4ef-c98a-4781-966d-fb3705107a71\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"bfc89e70-c7c6-42cb-9622-9741587d7588\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"cbbf4822-f44b-46bb-be9f-4361dceaa2f2\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"cd37b83f-7c8c-4891-8e80-063a42bba950\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"d65be940-d3c1-446d-be7f-716111cdf974\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"dc14a2f5-1965-4c03-a1aa-1addf7eb33cb\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"dd001c21-c86a-4fa0-a10f-3fdd61af9c90\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"e3a8621b-f9a6-4290-b888-9a6f64c6feba\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"e5769ab8-c1a9-4377-8975-02e32eb8269a\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"e6c3cdf3-26d0-4627-849a-541f8965d085\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"ee1372d1-529e-40f6-a9b9-af5c7b62215d\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"f5af788e-2070-4b32-aaf4-7ba162b047a6\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"f7790b31-1ee6-43c4-966c-b929857ec80d\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"f916030e-c862-42a3-8f65-dc7275666704\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},{\"id\":\"fbd620f5-45d6-4659-b53d-81c422190d1c\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null}],\"status\":200}",
+					"language": "json",
+					"rawDataType": "text",
+					"previewType": "text",
+					"searchResultScrolledTo": -1,
+					"forceNoPretty": false,
+					"write": true,
+					"empty": false,
+					"failed": false,
+					"name": "Get All Clients",
+					"id": "375b69a6-c2d7-d06f-6f26-4762b97459e5",
+					"request": "d514b224-6abf-67c0-e169-a358a1ecfe53",
+					"requestObject": {
+						"url": "http://localhost:8080/cuber/clients/all",
+						"pathVariables": {},
+						"pathVariableData": [],
+						"queryParams": [],
+						"headerData": [],
+						"headers": "",
+						"data": null,
+						"method": "GET",
+						"dataMode": "params"
+					}
+				},
+				{
+					"status": "",
+					"responseCode": {
+						"code": 200,
+						"name": "OK",
+						"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+					},
+					"time": 78,
+					"headers": [
+						{
+							"name": "content-length",
+							"key": "content-length",
+							"value": "235",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"name": "content-type",
+							"key": "content-type",
+							"value": "application/json;charset=UTF-8",
+							"description": "The mime type of this content"
+						},
+						{
+							"name": "date",
+							"key": "date",
+							"value": "Fri, 15 Nov 2019 11:07:44 GMT",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"name": "server",
+							"key": "server",
+							"value": "Apache TomEE",
+							"description": "A name for the server"
+						}
+					],
+					"cookies": [],
+					"mime": "",
+					"text": "{\"success\":true,\"body\":{\"id\":\"e6c3cdf3-26d0-4627-849a-541f8965d085\",\"first_name\":\"Osman\",\"last_name\":\"KHODER\",\"phone_number\":\"71769766\",\"email\":\"osmankhoder7@gmail.com\",\"gender\":\"MALE\",\"created_at\":null,\"updated_at\":null},\"status\":200}",
+					"language": "json",
+					"rawDataType": "text",
+					"previewType": "text",
+					"searchResultScrolledTo": -1,
+					"forceNoPretty": false,
+					"write": true,
+					"empty": false,
+					"failed": false,
+					"name": "Get Client",
+					"id": "7d2ace67-71bf-b3b2-db85-c57055ebf6ea",
+					"request": "d514b224-6abf-67c0-e169-a358a1ecfe53",
+					"requestObject": {
+						"url": "http://localhost:8080/cuber/clients/get/e6c3cdf3-26d0-4627-849a-541f8965d085",
+						"pathVariables": {},
+						"pathVariableData": [],
+						"queryParams": [],
+						"headerData": [],
+						"headers": "",
+						"data": null,
+						"method": "GET",
+						"dataMode": "params"
+					}
+				}
+			]
+		}
+	]
+}
