@@ -54,7 +54,6 @@ public class ClientController {
 
     @RequestMapping(value = "clients/delete/{id}",
             produces = "application/json;charset=UTF-8",
-            consumes = "application/json",
             method = RequestMethod.DELETE)
     public ResponseEntity deleteClient(@PathVariable("id") String clientId) {
         return Response.ok(clientService.deleteClient(clientId));
