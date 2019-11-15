@@ -1,0 +1,60 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context-4.1.xsd
+        http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx-4.1.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc-4.1.xsd">
+
+    <!--********************************************To configure Spring***************************************-->
+    <!-- Automatic scanning Decide which package to scan for-->
+    <context:component-scan base-package="com.ahok.cuber">
+        <!-- Skip the scan @Controller Annotated JAVA Class (Controller) -->
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+    </context:component-scan>
+
+    <!--********************************************To configure hibernate********************************************-->
+
+    <!--Scanning configuration files(This points to the one previously configured. jdbc.properties) If any changes need to be made-->
+    <context:property-placeholder location="classpath:jdbc.properties" />
+
+    <!--Configuring data sources-->
+    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+        <property name="driverClass" value="${jdbc.driver}" />  <!--Database Connection Driver-->
+        <property name="jdbcUrl" value="${jdbc.url}" />     <!--Database Address-->
+        <property name="user" value="${jdbc.username}" />   <!--User name-->
+        <property name="password" value="${jdbc.password}" />   <!--Password-->
+        <property name="maxPoolSize" value="40" />      <!--maximum connection-->
+        <property name="minPoolSize" value="1" />       <!--Minimum number of connections-->
+        <property name="initialPoolSize" value="10" />      <!--Initialize database connections in connection pools-->
+        <property name="maxIdleTime" value="20" />  <!--Maximum idle time-->
+    </bean>
+
+    <!--To configure session factory-->
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+        <property name="dataSource" ref="dataSource" />
+        <!--If there is a change, change to the corresponding configuration file-->
+        <property name="packagesToScan" value="com.ahok.cuber.entity" />
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.hbm2ddl.auto">${hibernate.hbm2ddl.auto}</prop> <!--hibernate Automatic generation of database tables based on entities-->
+                <prop key="hibernate.dialect">${hibernate.dialect}</prop>   <!--Designated database dialect-->
+                <prop key="hibernate.show_sql">${hibernate.show_sql}</prop>     <!--Display the executed database operation statement in the console-->
+                <prop key="hibernate.format_sql">${hibernate.format_sql}</prop>     <!--Display the executed data crying operation statement (format) in the console-->
+            </props>
+        </property>
+
+    </bean>
+
+    <!-- Things Manager Configuration  -->
+    <bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+    <tx:annotation-driven transaction-manager="transactionManager" />
+</beans>
