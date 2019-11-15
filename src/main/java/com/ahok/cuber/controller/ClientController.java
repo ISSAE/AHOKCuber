@@ -46,12 +46,14 @@ public class ClientController {
             consumes = "application/json",
             method = RequestMethod.PUT)
     public ResponseEntity updateClient(@RequestBody @Validated Client client) {
+        // TODO
+        // handle IllegalArgumentException if `id` is missing.
+        // handle NullPointerException if client with given `id` not found
         return Response.ok(clientService.updateClient(client));
     }
 
     @RequestMapping(value = "clients/delete/{id}",
             produces = "application/json;charset=UTF-8",
-            consumes = "application/json",
             method = RequestMethod.DELETE)
     public ResponseEntity deleteClient(@PathVariable("id") String clientId) {
         return Response.ok(clientService.deleteClient(clientId));
