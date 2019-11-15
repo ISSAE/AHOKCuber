@@ -19,4 +19,8 @@ public class Response {
     public static ResponseEntity badRequest(Object object) {
         return ResponseEntity.badRequest().body(Response.body(false, object, HttpStatus.BAD_REQUEST));
     }
+
+    public static ResponseEntity notFound(String message) {
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(Response.body(false, message, HttpStatus.NOT_FOUND));
+    }
 }
