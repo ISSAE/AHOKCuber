@@ -38,7 +38,11 @@ public class ClientController {
             consumes = "application/json",
             method = RequestMethod.POST)
     public ResponseEntity createClient(@RequestBody @Validated Client client) {
-        return Response.ok(clientService.createClient(client));
+        String action = clientService.createClient(client);
+        if (action == null) {
+            return Response.badRequest(String.format("Client with email (%s) already exists", client.getEmail()));
+        }
+        return Response.ok(client);
     }
 
     @RequestMapping(value = "clients/update",

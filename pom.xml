@@ -51,26 +51,21 @@
             <scope>${jersey.scope}</scope>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/org.glassfish.jersey.ext/jersey-mvc-mustache -->
         <dependency>
             <groupId>org.glassfish.jersey.ext</groupId>
             <artifactId>jersey-spring3</artifactId>
-            <version>2.12</version>
-            <scope>${jersey.scope}</scope>
+            <version>${jersey.version}</version>
             <exclusions>
                 <exclusion>
-                    <groupId>org.springframework</groupId>
-                    <artifactId>spring-core</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>org.springframework</groupId>
-                    <artifactId>spring-web</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>org.springframework</groupId>
-                    <artifactId>spring-beans</artifactId>
+                    <groupId>org.glassfish.hk2.external</groupId>
+                    <artifactId>bean-validator</artifactId>
                 </exclusion>
             </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.glassfish.jersey.ext</groupId>
+            <artifactId>jersey-bean-validation</artifactId>
+            <version>${jersey.version}</version>
         </dependency>
 
         <!-- Spring Framework 5.2.x -->
@@ -212,10 +207,10 @@
     </dependencies>
 
     <properties>
-        <jersey.version>2.12</jersey.version>
+        <jersey.version>2.22</jersey.version>
         <jersey.scope>compile</jersey.scope>
-        <spring.version>4.1.0.RELEASE</spring.version>
-        <hibernate.version>4.3.6.Final</hibernate.version>
+        <spring.version>5.2.1.RELEASE</spring.version>
+        <hibernate.version>5.4.4.Final</hibernate.version>
         <mysql.version>5.1.32</mysql.version>
         <jwt.version>3.8.3</jwt.version>
         <compileSource>1.7</compileSource>

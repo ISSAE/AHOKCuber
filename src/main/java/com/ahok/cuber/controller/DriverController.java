@@ -38,6 +38,10 @@ public class DriverController {
             consumes = "application/json",
             method = RequestMethod.POST)
     public ResponseEntity createDriver(@RequestBody @Validated Driver driver) {
+        String action = driverService.createDriver(driver);
+        if (action == null) {
+            return Response.badRequest(String.format("Driver with email (%s) already exists", driver.getEmail()));
+        }
         return Response.ok(driverService.createDriver(driver));
     }
 

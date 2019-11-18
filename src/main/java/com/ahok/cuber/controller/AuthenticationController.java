@@ -52,6 +52,10 @@ public class AuthenticationController {
             consumes = "application/json",
             method = RequestMethod.POST)
     public ResponseEntity register(@RequestBody Client client) {
+        String action = clientService.createClient(client);
+        if (action == null) {
+            return Response.badRequest(String.format("Client with email (%s) already exists", client.getEmail()));
+        }
         clientService.createClient(client);
         return generateToken();
     }
@@ -61,6 +65,10 @@ public class AuthenticationController {
             consumes = "application/json",
             method = RequestMethod.POST)
     public ResponseEntity driverRegister(@RequestBody Driver driver) {
+        String action = driverService.createDriver(driver);
+        if (action == null) {
+            return Response.badRequest(String.format("Driver with email (%s) already exists", driver.getEmail()));
+        }
         driverService.createDriver(driver);
         return generateToken();
     }
