@@ -14,7 +14,8 @@ Les diagrammes d'utilisation sont ici :
 * [Diagramme de recherche de nouveau trajet](documents/diagramme%20de%20recherche%20-%20nouveau%20trajet.png)
 * [Diagramme de recherche de trajet existant (covoiturage)](documents/diagramme%20de%20recherche%20-%20partage%20de%20trajet.png)
 * [Diagramme de base de données](documents/database.png)
-* [Document d'écrans et de composants de l'application](documents/ecrans-composants.pdf)  
+* [Document d'écrans et de composants de l'application](documents/ecrans-composants.pdf)   
+* [Diagramme de requête de trajet](documents/diagramme%20de%20requete%20de%20trajet.png)  
 
 ## [Design et Wireframes](documents/sketching)
 Nous utilions Mockflow pour créer les sketchs de notre application. Nous avons décidé d'implémenter Bootstrap pour sa facilité et son design ergonomique. Nous mettons à jour le design régulièrement.  
