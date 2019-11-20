@@ -2,6 +2,7 @@ package com.ahok.cuber.controller;
 
 import com.ahok.cuber.entity.Client;
 import com.ahok.cuber.service.ClientService;
+import com.ahok.cuber.socket.SocketService;
 import com.ahok.cuber.util.http.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -15,6 +16,9 @@ public class ClientController {
 
     @Autowired
     private ClientService clientService;
+
+    @Autowired
+    private SocketService socketService;
 
     @RequestMapping(value = "clients/all",
             produces = "application/json;charset=UTF-8",
@@ -31,6 +35,13 @@ public class ClientController {
             method = RequestMethod.GET)
     public ResponseEntity getClient(@PathVariable("id") String clientId) {
         return Response.ok(clientService.getClient(clientId));
+    }
+
+    @RequestMapping(value = "sockets/get",
+            produces = "application/json;charset=UTF-8",
+            method = RequestMethod.GET)
+    public ResponseEntity getSocket() {
+        return Response.ok(socketService.getServer().getConfiguration().getHostname() + ":" + socketService.getServer().getConfiguration().getPort());
     }
 
     @RequestMapping(value = "clients/add",

@@ -22,7 +22,9 @@
     <!--********************************************To configure hibernate********************************************-->
 
     <!--Scanning configuration files(This points to the one previously configured. jdbc.properties) If any changes need to be made-->
-    <context:property-placeholder location="classpath:jdbc.properties" />
+<!--    <context:property-placeholder location="classpath:application.properties" />-->
+<!--    <context:property-placeholder location="classpath:config.properties" />-->
+    <context:property-placeholder location="classpath:application.properties" />
 
     <!--Configuring data sources-->
     <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
