@@ -4,8 +4,8 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>110</x>
-      <y>80</y>
+      <x>0</x>
+      <y>170</y>
       <w>210</w>
       <h>200</h>
     </coordinates>
@@ -24,8 +24,8 @@ updated_at: timestamp</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>490</x>
-      <y>10</y>
+      <x>380</x>
+      <y>100</y>
       <w>220</w>
       <h>220</h>
     </coordinates>
@@ -46,8 +46,8 @@ updated_at: timestamp</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>490</x>
-      <y>320</y>
+      <x>380</x>
+      <y>410</y>
       <w>240</w>
       <h>260</h>
     </coordinates>
@@ -62,6 +62,7 @@ start_location: varchar⁵
 end_location: varchar⁵
 start_location_search_term: varchar⁶
 end_location_search_term: varchar⁶
+status: enum⁷
 created_at: timestamp
 updated_at: timestamp</panel_attributes>
     <additional_attributes/>
@@ -69,8 +70,8 @@ updated_at: timestamp</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>120</x>
-      <y>510</y>
+      <x>10</x>
+      <y>600</y>
       <w>220</w>
       <h>110</h>
     </coordinates>
@@ -84,8 +85,8 @@ updated_at: timestamp</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>210</x>
-      <y>270</y>
+      <x>100</x>
+      <y>360</y>
       <w>300</w>
       <h>160</h>
     </coordinates>
@@ -97,8 +98,8 @@ m2=n</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>210</x>
-      <y>390</y>
+      <x>100</x>
+      <y>480</y>
       <w>30</w>
       <h>140</h>
     </coordinates>
@@ -108,8 +109,8 @@ m2=n</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>590</x>
-      <y>220</y>
+      <x>480</x>
+      <y>310</y>
       <w>30</w>
       <h>120</h>
     </coordinates>
@@ -121,10 +122,10 @@ m2=n</panel_attributes>
   <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>740</x>
-      <y>190</y>
-      <w>300</w>
-      <h>150</h>
+      <x>630</x>
+      <y>280</y>
+      <w>400</w>
+      <h>180</h>
     </coordinates>
     <panel_attributes>¹gender enum: ['female', 'male']
 ²distance: en kilomètres
@@ -134,7 +135,8 @@ m2=n</panel_attributes>
 ⁶start_location_search_term: peut être null
 quand l'utilisateur n'a pas saisi de recherche
 mais a plutôt indiqué sa position sur la carte.
-
+⁷status enum: ['client_waiting', 'client_picked_up', 
+					'could_not_meet', 'finished']
 
 
 bg=blue</panel_attributes>

@@ -1,0 +1,434 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.2">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLActor</id>
+    <coordinates>
+      <x>640</x>
+      <y>190</y>
+      <w>60</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>Serveur</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLActor</id>
+    <coordinates>
+      <x>1150</x>
+      <y>170</y>
+      <w>100</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>Conducteur
+{id: 1}</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLActor</id>
+    <coordinates>
+      <x>110</x>
+      <y>180</y>
+      <w>60</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>Client
+{id: 1}</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>170</x>
+      <y>180</y>
+      <w>320</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+1. envoyer une tripRequest
+{start, end, client}</panel_attributes>
+    <additional_attributes>300.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>50</x>
+      <y>40</y>
+      <w>220</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+ligne de communication par http</panel_attributes>
+    <additional_attributes>30.0;20.0;180.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>850</x>
+      <y>170</y>
+      <w>340</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.&gt;&gt;
+1. chaîne websocket "Driver.1" établie</panel_attributes>
+    <additional_attributes>320.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>50</x>
+      <y>80</y>
+      <w>230</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.
+ligne de communication par socket</panel_attributes>
+    <additional_attributes>30.0;20.0;190.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>860</x>
+      <y>210</y>
+      <w>340</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.
+2. relayer la tripRequest au conducteur
+{id: fror93, start, end, client}</panel_attributes>
+    <additional_attributes>320.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>860</x>
+      <y>260</y>
+      <w>340</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;&gt;
+3. accepter ou refuser la tripRequest
+{id: fror93, driver_accepted: true/false}</panel_attributes>
+    <additional_attributes>320.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>130</x>
+      <y>340</y>
+      <w>410</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;&gt;
+5. recevoir réponse conducteur et nouveau Trip si acceptation
+{driver_accepted: true/false, trip: {...}}</panel_attributes>
+    <additional_attributes>360.0;20.0;40.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>190</x>
+      <y>190</y>
+      <w>100</w>
+      <h>170</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;..
+long polling</panel_attributes>
+    <additional_attributes>10.0;150.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>80</x>
+      <y>120</y>
+      <w>190</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;..
+autres</panel_attributes>
+    <additional_attributes>10.0;20.0;170.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>560</x>
+      <y>70</y>
+      <w>170</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>Le serveur garde
+une liste des tripRequests
+courants en mémoire
+et attribue un ID à chaque 
+requête en cours
+bg=blue</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>580</x>
+      <y>310</y>
+      <w>220</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>4. Sauvegarder un nouveau Trip
+{..., status: client_waiting}
+style=wordwrap</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>860</x>
+      <y>310</y>
+      <w>340</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+5. recevoir le nouveau Trip</panel_attributes>
+    <additional_attributes>320.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>880</x>
+      <y>270</y>
+      <w>30</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;..</panel_attributes>
+    <additional_attributes>10.0;60.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>0</x>
+      <y>0</y>
+      <w>320</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>Légende
+--
+bg=orange</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>860</x>
+      <y>400</y>
+      <w>340</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;&gt;
+6. envoyer position actuelle 
+sur chaîne  "Trip.1"
+{lat, lng}</panel_attributes>
+    <additional_attributes>320.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>150</x>
+      <y>480</y>
+      <w>340</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.
+7. établir connexion à "Trip.1"</panel_attributes>
+    <additional_attributes>320.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>150</x>
+      <y>540</y>
+      <w>340</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;&gt;
+8. recevoir position du conducteur sur "Trip.1"</panel_attributes>
+    <additional_attributes>320.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>150</x>
+      <y>600</y>
+      <w>340</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+9.a. Si position du conducteur est position de départ
+le client confirme et envoie 
+{id: id_du_trip, status: client_picked_up}</panel_attributes>
+    <additional_attributes>320.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>570</x>
+      <y>660</y>
+      <w>220</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>10.a. Mettre à jour Trip
+{status: client_picked_up}
+style=wordwrap</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>140</x>
+      <y>740</y>
+      <w>360</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+9.b. Si plus tard, le conducteur n'est pas du tout trouvé
+{id: id_du_trip, status: could_not_meet}</panel_attributes>
+    <additional_attributes>330.0;20.0;20.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>560</x>
+      <y>790</y>
+      <w>220</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>10.b. Mettre à jour Trip
+{status: could_not_meet}
+style=wordwrap</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>860</x>
+      <y>820</y>
+      <w>340</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.
+11. envoyer nouveau status du Trip
+sur chaîne  "Trip.1"</panel_attributes>
+    <additional_attributes>320.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>890</x>
+      <y>880</y>
+      <w>270</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>Si le statut est 
+could_not_meet,
+le conducteur voit un message et retourne
+à l'écran "Idle".
+bg=blue</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>160</x>
+      <y>880</y>
+      <w>270</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>Si le statut est 
+could_not_meet,
+le client voit un message et retourne
+à l'écran "WhereTo".
+bg=blue</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>130</x>
+      <y>1120</y>
+      <w>340</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;&gt;
+14. Recevoir évènement d'arrivée à destination</panel_attributes>
+    <additional_attributes>320.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>870</x>
+      <y>1010</y>
+      <w>340</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;&gt;
+12. envoyer évènement d'arrivée à destination
+si le Trip status est déjà client_picked_up
+sur chaîne  "Trip.1"</panel_attributes>
+    <additional_attributes>320.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>160</x>
+      <y>1180</y>
+      <w>230</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>L'écran  "ClientArrived" est affiché
+
+bg=blue</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>560</x>
+      <y>1060</y>
+      <w>220</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>13. Mettre à jour Trip
+{status: finished, ended_at: now}
+style=wordwrap</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>900</x>
+      <y>1190</y>
+      <w>290</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>L'écran "Idle" est affiché après un message
+de remerciement
+
+bg=blue</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>490</x>
+      <y>1340</y>
+      <w>290</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>En conclusion ... 
+Le trip a les statuts suivants:
+1. client_waiting
+2. client_picked_up
+3. could_not_meet
+4. finished
+
+bg=blue</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>

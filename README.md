@@ -14,7 +14,8 @@ Les diagrammes d'utilisation sont ici :
 * [Diagramme de recherche de nouveau trajet](documents/diagramme%20de%20recherche%20-%20nouveau%20trajet.png)
 * [Diagramme de recherche de trajet existant (covoiturage)](documents/diagramme%20de%20recherche%20-%20partage%20de%20trajet.png)
 * [Diagramme de base de données](documents/database.png)
-* [Document d'écrans et de composants de l'application](documents/ecrans-composants.pdf)  
+* [Document d'écrans et de composants de l'application](documents/ecrans-composants.pdf)   
+* [Diagramme de requête de trajet](documents/diagramme%20de%20requete%20de%20trajet.png)  
 
 ## [Design et Wireframes](documents/sketching)
 Nous utilions Mockflow pour créer les sketchs de notre application. Nous avons décidé d'implémenter Bootstrap pour sa facilité et son design ergonomique. Nous mettons à jour le design régulièrement.  
@@ -30,11 +31,11 @@ Nous utilions Mockflow pour créer les sketchs de notre application. Nous avons 
 
 - [x] Phase 4: dessiner les sketchs du premier livrable de l'application. [Voir design final](documents/wireframes.pdf)
 
-- [ ] Phase 5: rechercher en détails les points techniques de chaque story: que faut-il utiliser, et comment (par exemple, intégrer OAuth pour que les utilisateurs puissent créer des comptes) ? Que faire niveau serveur ?  
+- [x] Phase 5: rechercher en détails les points techniques de chaque story: que faut-il utiliser, et comment (par exemple, intégrer OAuth pour que les utilisateurs puissent créer des comptes) ? Que faire niveau serveur ?  
 
-- [ ] Phase 6: pour chaque itération, répartir les tâches dans l'équipe.
+- [x] Phase 6: pour chaque itération, répartir les tâches dans l'équipe.
 
-- [ ] Phase 7: pour chaque itération, créer les sketchs et les confirmer par l'équipe (sauf premier livrable qui est déjà fait en sketch).     
+- [x] Phase 7: pour chaque itération, créer les sketchs et les confirmer par l'équipe.  
 
 - [ ] Phase 8: chaque développeur teste les fonctionnalités développées par l'autre (normalement il faut un équipe de contrôle de qualité, mais nous ne sommes que deux !)
 
