@@ -16,6 +16,7 @@ public class DriverController {
     @Autowired
     private DriverService driverService;
 
+    @CrossOrigin(origins = "*")
     @RequestMapping(value = "drivers/all",
             produces = "application/json;charset=UTF-8",
             method = RequestMethod.GET)
@@ -26,6 +27,7 @@ public class DriverController {
         return Response.ok(driversList);
     }
 
+    @CrossOrigin(origins = "*")
     @RequestMapping(value = "drivers/get/{id}",
             produces = "application/json;charset=UTF-8",
             method = RequestMethod.GET)
@@ -33,6 +35,7 @@ public class DriverController {
         return Response.ok(driverService.getDriver(driverId));
     }
 
+    @CrossOrigin(origins = "*")
     @RequestMapping(value = "drivers/add",
             produces = "application/json;charset=UTF-8",
             consumes = "application/json",
@@ -45,6 +48,7 @@ public class DriverController {
         return Response.ok(driverService.createDriver(driver));
     }
 
+    @CrossOrigin(origins = "*")
     @RequestMapping(value = "drivers/update",
             produces = "application/json;charset=UTF-8",
             consumes = "application/json",
@@ -56,6 +60,7 @@ public class DriverController {
         return Response.ok(driverService.updateDriver(driver));
     }
 
+    @CrossOrigin(origins = "*")
     @RequestMapping(value = "drivers/delete/{id}",
             produces = "application/json;charset=UTF-8",
             method = RequestMethod.DELETE)

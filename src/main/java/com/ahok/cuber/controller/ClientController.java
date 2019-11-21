@@ -17,9 +17,7 @@ public class ClientController {
     @Autowired
     private ClientService clientService;
 
-    @Autowired
-    private SocketService socketService;
-
+    @CrossOrigin(origins = "*")
     @RequestMapping(value = "clients/all",
             produces = "application/json;charset=UTF-8",
             method = RequestMethod.GET)
@@ -30,6 +28,7 @@ public class ClientController {
         return Response.ok(clientsList);
     }
 
+    @CrossOrigin(origins = "*")
     @RequestMapping(value = "clients/get/{id}",
             produces = "application/json;charset=UTF-8",
             method = RequestMethod.GET)
@@ -37,13 +36,7 @@ public class ClientController {
         return Response.ok(clientService.getClient(clientId));
     }
 
-    @RequestMapping(value = "sockets/get",
-            produces = "application/json;charset=UTF-8",
-            method = RequestMethod.GET)
-    public ResponseEntity getSocket() {
-        return Response.ok(socketService.getServer().getConfiguration().getHostname() + ":" + socketService.getServer().getConfiguration().getPort());
-    }
-
+    @CrossOrigin(origins = "*")
     @RequestMapping(value = "clients/add",
             produces = "application/json;charset=UTF-8",
             consumes = "application/json",
@@ -56,6 +49,7 @@ public class ClientController {
         return Response.ok(client);
     }
 
+    @CrossOrigin(origins = "*")
     @RequestMapping(value = "clients/update",
             produces = "application/json;charset=UTF-8",
             consumes = "application/json",
@@ -67,6 +61,7 @@ public class ClientController {
         return Response.ok(clientService.updateClient(client));
     }
 
+    @CrossOrigin(origins = "*")
     @RequestMapping(value = "clients/delete/{id}",
             produces = "application/json;charset=UTF-8",
             method = RequestMethod.DELETE)

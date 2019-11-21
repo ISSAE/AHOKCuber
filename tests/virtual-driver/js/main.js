@@ -7,9 +7,9 @@ var socket = io('http://localhost:9092/driver', {
 socket.on('connect', function () {
     output('<span class="connect-msg">The driver has connected with the server. Username: ' + userName + '</span>');
 });
-socket.on('get_location', function (data) {
-    console.log('Received message', data);
-    output('<span class="username-msg">' + data.userName + ':</span> ' + data.message);
+socket.on('request_location', function (data) {
+    output('<span class="username-msg">Received Location request from: </span>' + JSON.stringify(data));
+    sendLocation();
 });
 socket.on('disconnect', function () {
     output('<span class="disconnect-msg">The client has disconnected!</span>');

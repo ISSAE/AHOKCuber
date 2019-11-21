@@ -1,14 +1,14 @@
-package com.ahok.cuber.socket.modules.driver;
+package com.ahok.cuber.socket.modules.client;
 
-public class DriverLocation {
+public class ClientLocation {
 
     private String userName;
     private String message;
 
-    public DriverLocation() {
+    public ClientLocation() {
     }
 
-    public DriverLocation(String userName, String message) {
+    public ClientLocation(String userName, String message) {
         super();
         this.userName = userName;
         this.message = message;
