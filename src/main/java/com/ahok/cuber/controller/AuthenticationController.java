@@ -84,7 +84,7 @@ public class AuthenticationController {
         try {
             Algorithm algorithm = Algorithm.HMAC256(Config.getProperty("AUTH_PASSPHRASE"));
             Map<String, Object> headerClaims = new HashMap();
-            headerClaims.put("userID", id);
+            headerClaims.put("ownerID", id);
             headerClaims.put("isDriver", isDriver);
             return Response.ok(JWT.create()
                     .withHeader(headerClaims)

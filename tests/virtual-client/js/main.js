@@ -5,19 +5,22 @@ var socket = null;
 function login() {
     $.ajax({
         url: "http://localhost:8080/cuber/auth/token",
-        method: "post",
+        type: "post",
         contentType: "application/json",
         data: JSON.stringify({
             email: $("#email").val(),
             password: $("#password").val()
         })
     }).done(function (data) {
-        output('<span class="username-msg">' + data + '</span>')
+        output('<span class="username-msg"> Login success... <br>Token => <b>' + data.body + '</b></span>');
+        $("#token").val(data.body);
+    }).fail(function (jqXHR) {
+        output('<span class="disconnect-msg">' + jqXHR.responseJSON.body + '</span>')
     });
 }
 
-function initSocket(token) {
-    socket = io('http://localhost:9092/client?token=' + token, {
+function initSocket() {
+    socket = io('http://localhost:9092/client?token=' + $("#token").val(), {
         transports: ['polling', 'websocket']
     });
 
@@ -30,6 +33,9 @@ function initSocket(token) {
     });
     socket.on('disconnect', function () {
         output('<span class="disconnect-msg">The client has disconnected!</span>');
+    });
+    socket.on('invalid_token', function () {
+        output('<span class="disconnect-msg">Token is invalid!!</span>');
     });
     socket.on('reconnect_attempt', (attempts) => {
         console.log('Try to reconnect at ' + attempts + ' attempt(s).');

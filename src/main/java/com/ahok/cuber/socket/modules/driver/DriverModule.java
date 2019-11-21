@@ -34,9 +34,8 @@ public class DriverModule {
 
     private ConnectListener onConnected() {
         return client -> {
-            String token = client.getHandshakeData().getSingleUrlParam("token");
-//            client.disconnect();
-            System.out.printf("Driver[%s] - Connected to driver module through '%s'\n", client.getSessionId().toString(), token);
+            HandshakeData handshakeData = client.getHandshakeData();
+            System.out.printf("Driver[%s] - Connected to driver module through '%s'\n", client.getSessionId().toString(), handshakeData.getUrl());
         };
     }
 

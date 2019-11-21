@@ -34,13 +34,23 @@
 <div class="col-xs-12">
     <div class="form-group">
         <label for="email">Email address</label>
-        <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
+        <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email" value="osmankhoder7@gmail.com">
     </div>
     <div class="form-group">
         <label for="password">Password</label>
-        <input type="password" class="form-control" id="password" placeholder="Password">
+        <input type="password" class="form-control" id="password" placeholder="Password" value="123qweasdzxc_">
     </div>
     <button onclick="login()" class="btn btn-primary">Request Token</button>
+</div>
+<br>
+
+<div class="col-xs-12">
+    <div class="form-group">
+        <label for="token">Cuber Token</label>
+        <input type="text" class="form-control" id="token" placeholder="Enter Token">
+    </div>
+
+    <button onclick="initSocket()" class="btn btn-primary">Connect to web socket</button>
 </div>
 <br>
 
