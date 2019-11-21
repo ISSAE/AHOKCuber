@@ -14,6 +14,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
+import java.util.Map;
+
 @RestController
 public class AuthenticationController {
 
@@ -23,6 +26,7 @@ public class AuthenticationController {
     @Autowired
     private DriverService driverService;
 
+    @CrossOrigin(origins = "*")
     @RequestMapping(value = "auth/token",
             produces = "application/json;charset=UTF-8",
             consumes = "application/json",
@@ -32,9 +36,10 @@ public class AuthenticationController {
 
         if (client == null) return Response.badRequest("Wrong username or password");
 
-        return generateToken();
+        return generateToken(client.getId(), false);
     }
 
+    @CrossOrigin(origins = "*")
     @RequestMapping(value = "auth/driver/token",
             produces = "application/json;charset=UTF-8",
             consumes = "application/json",
@@ -44,9 +49,10 @@ public class AuthenticationController {
 
         if (driver == null) return Response.badRequest("Wrong username or password");
 
-        return generateToken();
+        return generateToken(driver.getId(), true);
     }
 
+    @CrossOrigin(origins = "*")
     @RequestMapping(value = "auth/client/register",
             produces = "application/json;charset=UTF-8",
             consumes = "application/json",
@@ -57,9 +63,10 @@ public class AuthenticationController {
             return Response.badRequest(String.format("Client with email (%s) already exists", client.getEmail()));
         }
         clientService.createClient(client);
-        return generateToken();
+        return generateToken(client.getId(), false);
     }
 
+    @CrossOrigin(origins = "*")
     @RequestMapping(value = "auth/driver/register",
             produces = "application/json;charset=UTF-8",
             consumes = "application/json",
@@ -70,13 +77,17 @@ public class AuthenticationController {
             return Response.badRequest(String.format("Driver with email (%s) already exists", driver.getEmail()));
         }
         driverService.createDriver(driver);
-        return generateToken();
+        return generateToken(driver.getId(), true);
     }
 
-    private ResponseEntity generateToken() {
+    private ResponseEntity generateToken(String id, boolean isDriver) {
         try {
             Algorithm algorithm = Algorithm.HMAC256(Config.getProperty("AUTH_PASSPHRASE"));
+            Map<String, Object> headerClaims = new HashMap();
+            headerClaims.put("userID", id);
+            headerClaims.put("isDriver", isDriver);
             return Response.ok(JWT.create()
+                    .withHeader(headerClaims)
                     .withIssuer("cuber")
                     .sign(algorithm));
         } catch (JWTCreationException exception) {

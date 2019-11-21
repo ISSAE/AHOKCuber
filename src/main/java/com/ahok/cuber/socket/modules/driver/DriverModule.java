@@ -31,7 +31,6 @@ public class DriverModule {
     private DataListener<DriverLocation> onLocationReceived() {
         return (client, data, ackSender) -> {
             log.debug("Client[{}] - Received location data '{}'", client.getSessionId().toString(), data);
-//            namespace.getBroadcastOperations().sendEvent("get_location", data);
             System.out.println(data);
         };
     }
