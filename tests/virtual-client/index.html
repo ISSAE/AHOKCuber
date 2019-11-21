@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8"/>
+    <title>Virtual Client</title>
+    <link href="bootstrap.css" rel="stylesheet">
+    <style>
+        body {
+            padding: 20px;
+        }
+
+        #console {
+            height: 400px;
+            overflow: auto;
+        }
+
+        .username-msg {
+            color: orange;
+        }
+
+        .connect-msg {
+            color: green;
+        }
+
+        .disconnect-msg {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Virtual Client</h1>
+<br/>
+<div class="col-xs-12">
+    <div class="form-group">
+        <label for="email">Email address</label>
+        <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
+    </div>
+    <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" class="form-control" id="password" placeholder="Password">
+    </div>
+    <button onclick="login()" class="btn btn-primary">Request Token</button>
+</div>
+<br>
+
+<div id="console" class="well"></div>
+
+<form class="well form-inline" onsubmit="return false;">
+    <button type="button" onClick="requestLocation()" class="btn">Request Location</button>
+    <button type="button" onClick="sendDisconnect()" class="btn">Disconnect</button>
+</form>
+
+<script src="js/socket.io-2.2.0.js"></script>
+<script src="js/moment-2.24.0.min.js"></script>
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
