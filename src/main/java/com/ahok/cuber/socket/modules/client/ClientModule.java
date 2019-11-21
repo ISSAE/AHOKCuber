@@ -1,13 +1,13 @@
 package com.ahok.cuber.socket.modules.client;
 
+import com.ahok.cuber.entity.Client;
 import com.ahok.cuber.socket.SocketService;
 import com.ahok.cuber.socket.modules.SocketUser;
-import com.ahok.cuber.socket.modules.driver.DriverLocation;
+import com.ahok.cuber.util.SocketUtil;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.exceptions.JWTDecodeException;
 import com.auth0.jwt.interfaces.Claim;
 import com.auth0.jwt.interfaces.DecodedJWT;
-import com.corundumstudio.socketio.HandshakeData;
 import com.corundumstudio.socketio.SocketIOClient;
 import com.corundumstudio.socketio.SocketIONamespace;
 import com.corundumstudio.socketio.SocketIOServer;
@@ -33,7 +33,10 @@ public class ClientModule {
     }
 
     private DataListener<SocketUser> onRequestLocation() {
-        return (client, data, ackSender) -> this.server.getNamespace("/driver").getBroadcastOperations().sendEvent("request_location", data);
+        return (client, data, ackSender) -> {
+            SocketUser user = SocketUtil.auth(client);
+            this.server.getNamespace("/driver").getBroadcastOperations().sendEvent("request_location", user);
+        };
     }
 
     private ConnectListener onConnected() {
@@ -49,7 +52,7 @@ public class ClientModule {
                     return;
                 }
 
-                client.set("ownerID", ownerID);
+                client.set("ownerID", ownerID.asString());
 
                 System.out.printf("Client[%s] - Connected to client module with token => '%s'\n", client.getSessionId().toString(), token);
             } catch (JWTDecodeException exception) {
