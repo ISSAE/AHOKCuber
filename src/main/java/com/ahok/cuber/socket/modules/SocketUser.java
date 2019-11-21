@@ -2,24 +2,32 @@ package com.ahok.cuber.socket.modules;
 
 public class SocketUser {
 
-    private String token;
+    private String userID;
     private String sessionID;
+    private boolean isDriver;
 
-    public SocketUser() {
-    }
+    public SocketUser() {}
 
     public SocketUser(String token, String sessionID) {
         super();
-        this.token = token;
+        this.userID = token;
         this.sessionID = sessionID;
     }
 
-    public String getToken() {
-        return token;
+    public String getUserID() {
+        return userID;
     }
 
-    public void setToken(String token) {
-        this.token = token;
+    public void setUserID(String token) {
+        this.userID = token;
+    }
+
+    public boolean isDriver() {
+        return isDriver;
+    }
+
+    public void setDriver(boolean driver) {
+        isDriver = driver;
     }
 
     public String getSessionID() {
@@ -33,7 +41,7 @@ public class SocketUser {
     @Override
     public String toString() {
         return "SocketUser{" +
-                "token='" + token + '\'' +
+                "token='" + userID + '\'' +
                 ", sessionID='" + sessionID + '\'' +
                 '}';
     }

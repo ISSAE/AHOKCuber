@@ -1,6 +1,5 @@
 package com.ahok.cuber.socket.modules.client;
 
-import com.ahok.cuber.entity.Client;
 import com.ahok.cuber.socket.SocketService;
 import com.ahok.cuber.socket.modules.SocketUser;
 import com.ahok.cuber.util.SocketUtil;
