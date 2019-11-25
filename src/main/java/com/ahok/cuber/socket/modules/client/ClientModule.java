@@ -2,8 +2,11 @@ package com.ahok.cuber.socket.modules.client;
 
 import com.ahok.cuber.socket.SocketService;
 import com.ahok.cuber.socket.modules.SocketUser;
+import com.ahok.cuber.util.Config;
 import com.ahok.cuber.util.SocketUtil;
 import com.auth0.jwt.JWT;
+import com.auth0.jwt.JWTVerifier;
+import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.exceptions.JWTDecodeException;
 import com.auth0.jwt.interfaces.Claim;
 import com.auth0.jwt.interfaces.DecodedJWT;
@@ -42,7 +45,11 @@ public class ClientModule {
         return client -> {
             String token = client.getHandshakeData().getSingleUrlParam("token");
             try {
-                DecodedJWT jwt = JWT.decode(token);
+                Algorithm algorithm = Algorithm.HMAC256(Config.getProperty("AUTH_PASSPHRASE"));
+                JWTVerifier verifier = JWT.require(algorithm)
+                        .withIssuer("cuber")
+                        .build();
+                DecodedJWT jwt = verifier.verify(token);
                 Claim isDriver = jwt.getClaim("isDriver");
                 Claim ownerID = jwt.getClaim("ownerID");
 
