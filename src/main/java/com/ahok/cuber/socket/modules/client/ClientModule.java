@@ -2,14 +2,7 @@ package com.ahok.cuber.socket.modules.client;
 
 import com.ahok.cuber.socket.SocketService;
 import com.ahok.cuber.socket.modules.SocketUser;
-import com.ahok.cuber.util.Config;
 import com.ahok.cuber.util.SocketUtil;
-import com.auth0.jwt.JWT;
-import com.auth0.jwt.JWTVerifier;
-import com.auth0.jwt.algorithms.Algorithm;
-import com.auth0.jwt.exceptions.JWTDecodeException;
-import com.auth0.jwt.interfaces.Claim;
-import com.auth0.jwt.interfaces.DecodedJWT;
 import com.corundumstudio.socketio.SocketIOClient;
 import com.corundumstudio.socketio.SocketIONamespace;
 import com.corundumstudio.socketio.SocketIOServer;
@@ -31,12 +24,13 @@ public class ClientModule {
         this.namespace = server.addNamespace("/client");
         this.namespace.addConnectListener(onConnected());
         this.namespace.addDisconnectListener(onDisconnected());
-        this.namespace.addEventListener("request_location", SocketUser.class, onRequestLocation());
+        this.namespace.addEventListener("request_location", Object.class, onRequestLocation());
     }
 
-    private DataListener<SocketUser> onRequestLocation() {
+    private DataListener<Object> onRequestLocation() {
         return (client, data, ackSender) -> {
             SocketUser user = SocketUtil.auth(client);
+            System.out.println(String.format("Client[%s] - Request Candidate Driver location.\n", client.getSessionId().toString()));
             this.server.getNamespace("/driver").getBroadcastOperations().sendEvent("request_location", user);
         };
     }
@@ -44,25 +38,18 @@ public class ClientModule {
     private ConnectListener onConnected() {
         return client -> {
             String token = client.getHandshakeData().getSingleUrlParam("token");
-            try {
-                Algorithm algorithm = Algorithm.HMAC256(Config.getProperty("AUTH_PASSPHRASE"));
-                JWTVerifier verifier = JWT.require(algorithm)
-                        .withIssuer("cuber")
-                        .build();
-                DecodedJWT jwt = verifier.verify(token);
-                Claim isDriver = jwt.getClaim("isDriver");
-                Claim ownerID = jwt.getClaim("ownerID");
-
-                if (isDriver.asBoolean()) {
-                    this.disconnect(client, "Driver cannot login to the client module");
+            SocketUser user = SocketUtil.auth(client);
+            if (user != null) {
+                if (user.isDriver()) {
+                    disconnect(client, "Driver cannot login to client module");
                     return;
                 }
-
-                client.set("ownerID", ownerID.asString());
+                client.set("ownerID", user.getUserID());
 
                 System.out.printf("Client[%s] - Connected to client module with token => '%s'\n", client.getSessionId().toString(), token);
-            } catch (JWTDecodeException exception) {
-                this.disconnect(client, "Invalid Token");
+                System.out.printf("Number of connected clients '%s'\n", namespace.getAllClients().size());
+            } else {
+                disconnect(client, "Invalid Token");
             }
         };
     }

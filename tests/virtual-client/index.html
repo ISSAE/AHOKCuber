@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8"/>
     <title>Virtual Client</title>
-    <link href="bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <style>
         body {
             padding: 20px;
@@ -31,34 +31,50 @@
 
 <h1>Virtual Client</h1>
 <br/>
-<div class="col-xs-12">
-    <div class="form-group">
-        <label for="email">Email address</label>
-        <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email" value="osmankhoder7@gmail.com">
+<div class="row">
+    <div class="col-5">
+        <div class="form-group">
+            <label for="email">Email address</label>
+            <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email" value="osmankhoder7@gmail.com">
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" id="password" placeholder="Password" value="123qweasdzxc_">
+        </div>
+        <button onclick="login()" class="btn btn-primary">Request Token</button>
     </div>
-    <div class="form-group">
-        <label for="password">Password</label>
-        <input type="password" class="form-control" id="password" placeholder="Password" value="123qweasdzxc_">
+    <div class="col-7">
+        <h4>Candidate Drivers</h4>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Driver Details</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody id="candidate-drivers">
+
+            </tbody>
+        </table>
     </div>
-    <button onclick="login()" class="btn btn-primary">Request Token</button>
+</div>
+
+<div class="row">
+    <div class="col-5">
+        <div class="form-group">
+            <label for="token">Cuber Token</label>
+            <input type="text" class="form-control" id="token" placeholder="Enter Token">
+        </div>
+
+        <button onclick="initSocket()" class="btn btn-primary">Connect to web socket</button>
+    </div>
 </div>
 <br>
-
-<div class="col-xs-12">
-    <div class="form-group">
-        <label for="token">Cuber Token</label>
-        <input type="text" class="form-control" id="token" placeholder="Enter Token">
-    </div>
-
-    <button onclick="initSocket()" class="btn btn-primary">Connect to web socket</button>
-</div>
-<br>
-
-<div id="console" class="well"></div>
+<div id="console" class="jumbotron p-2" style="font-size: 12px;"></div>
 
 <form class="well form-inline" onsubmit="return false;">
-    <button type="button" onClick="requestLocation()" class="btn">Request Location</button>
-    <button type="button" onClick="sendDisconnect()" class="btn">Disconnect</button>
+    <button type="button" onClick="requestLocation()" class="btn btn-light">Request Location</button>&nbsp;&nbsp;
+    <button type="button" onClick="sendDisconnect()" class="btn btn-dark">Disconnect</button>
 </form>
 
 <script src="js/socket.io-2.2.0.js"></script>

@@ -2,6 +2,8 @@ package com.ahok.cuber.util;
 
 import com.ahok.cuber.socket.modules.SocketUser;
 import com.auth0.jwt.JWT;
+import com.auth0.jwt.JWTVerifier;
+import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.exceptions.JWTDecodeException;
 import com.auth0.jwt.interfaces.Claim;
 import com.auth0.jwt.interfaces.DecodedJWT;
@@ -20,9 +22,9 @@ public class SocketUtil {
     public static SocketUser auth(SocketIOClient client) {
         String token = client.getHandshakeData().getSingleUrlParam("token");
         try {
-            DecodedJWT jwt = JWT.decode(token);
-            Claim isDriver = jwt.getClaim("isDriver");
-            Claim ownerID = jwt.getClaim("ownerID");
+            DecodedJWT jwt = SocketUtil.getTokenDecoder(token);
+            Claim isDriver = jwt.getHeaderClaim("isDriver");
+            Claim ownerID = jwt.getHeaderClaim("ownerID");
 
             SocketUser user = new SocketUser();
             user.setSessionID(client.getSessionId().toString());
@@ -33,5 +35,13 @@ public class SocketUtil {
         } catch (JWTDecodeException exception) {
             return null;
         }
+    }
+
+    private static DecodedJWT getTokenDecoder(String token) {
+        Algorithm algorithm = Algorithm.HMAC256(Config.getProperty("AUTH_PASSPHRASE"));
+        JWTVerifier verifier = JWT.require(algorithm)
+                .withIssuer("cuber")
+                .build();
+        return verifier.verify(token);
     }
 }

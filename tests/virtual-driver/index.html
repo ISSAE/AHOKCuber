@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8"/>
     <title>Virtual Driver</title>
-    <link href="bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <style>
         body {
             padding: 20px;
@@ -31,7 +31,29 @@
 
 <h1>Virtual Driver</h1>
 <br/>
+<br/>
+<div class="col-xs-12">
+    <div class="form-group">
+        <label for="email">Email address</label>
+        <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email" value="osmankhoder7@gmail.com">
+    </div>
+    <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" class="form-control" id="password" placeholder="Password" value="123qweasdzxc_">
+    </div>
+    <button onclick="login()" class="btn btn-primary">Request Token</button>
+</div>
+<br>
 
+<div class="col-xs-12">
+    <div class="form-group">
+        <label for="token">Cuber Token</label>
+        <input type="text" class="form-control" id="token" placeholder="Enter Token">
+    </div>
+
+    <button onclick="initSocket()" class="btn btn-primary">Connect to web socket</button>
+</div>
+<br>
 <div id="console" class="well"></div>
 
 <form class="well form-inline" onsubmit="return false;">

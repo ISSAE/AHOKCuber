@@ -33,7 +33,7 @@ public class Driver implements Serializable {
     @Column(columnDefinition = "DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP")
     private Date updated_at;
 
-    private enum Gender {
+    public enum Gender {
         MALE (0){
             @Override
             public boolean isMale() {

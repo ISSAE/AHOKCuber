@@ -12,7 +12,7 @@ function login() {
             password: $("#password").val()
         })
     }).done(function (data) {
-        output('<span class="username-msg"> Login success... <br>Token => <b>' + data.body + '</b></span>');
+        output('<span class="username-msg"> Login success... Token => <b>' + data.body + '</b></span>');
         $("#token").val(data.body);
     }).fail(function (jqXHR) {
         output('<span class="disconnect-msg">' + jqXHR.responseJSON.body + '</span>')
@@ -24,12 +24,13 @@ function initSocket() {
         transports: ['polling', 'websocket']
     });
 
-    socket.on('connect', function () {
-        output('<span class="connect-msg">The client has connected with the server. Username: ' + userName + '</span>');
+    socket.on('connect', function (data) {
+        output('<span class="connect-msg">The client has connected with the server. session id: ' + socket.get + '</span>');
     });
     socket.on('receive_location', function (data) {
-        console.log(data);
+        let driver = data.driver;
         output('<span class="username-msg">Received Driver location: </span>' + JSON.stringify(data));
+        $("#candidate-drivers").append(`<tr><td>${driver.first_name} ${driver.last_name} / ${driver.car_model} (${driver.car_registration_number})</td><td><button class="btn btn-primary" onclick="requestTrip('${driver.id}')">Request Trip</button></td></tr>`);
     });
     socket.on('disconnect', function () {
         output('<span class="disconnect-msg">The client has disconnected!</span>');
@@ -47,8 +48,12 @@ function sendDisconnect() {
 }
 
 function requestLocation() {
-    var jsonObject = {userName: userName, message: clientLocation, actionTime: new Date()};
-    socket.emit('request_location', jsonObject);
+    $("#candidate-drivers").html("");
+    socket.emit('request_location');
+}
+
+function requestTrip(driverID) {
+    socket.emit('request_trip', driverID);
 }
 
 function output(message) {

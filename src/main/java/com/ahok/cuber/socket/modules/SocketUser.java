@@ -8,10 +8,10 @@ public class SocketUser {
 
     public SocketUser() {}
 
-    public SocketUser(String token, String sessionID) {
-        super();
-        this.userID = token;
+    public SocketUser(String userID, String sessionID, boolean isDriver) {
+        this.userID = userID;
         this.sessionID = sessionID;
+        this.isDriver = isDriver;
     }
 
     public String getUserID() {
