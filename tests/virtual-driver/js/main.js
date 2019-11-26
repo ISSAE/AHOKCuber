@@ -29,6 +29,25 @@ function initSocket() {
         output('<span class="username-msg">Received Location request from: </span>' + JSON.stringify(user));
         sendLocation(user);
     });
+    socket.on('request_trip', function (data) {
+        output('<span class="username-msg">Received Trip request from: </span>' + JSON.stringify(data));
+        let client = data.client;
+        $("#trip_request .text").text(`${client.first_name} ${client.last_name} / ${data.location}`);
+        $( "#trip_request" ).dialog({
+            resizable: false,
+            height: "auto",
+            width: 400,
+            modal: true,
+            buttons: {
+                "On My Way": function() {
+                    $( this ).dialog( "close" );
+                },
+                Cancel: function() {
+                    $( this ).dialog( "close" );
+                }
+            }
+        });
+    });
     socket.on('disconnect', function () {
         output('<span class="disconnect-msg">The client has disconnected!</span>');
     });

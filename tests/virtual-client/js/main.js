@@ -53,7 +53,8 @@ function requestLocation() {
 }
 
 function requestTrip(driverID) {
-    socket.emit('request_trip', driverID);
+    var jsonObject = {clientLocation: clientLocation, driver: driverID};
+    socket.emit('request_trip', jsonObject);
 }
 
 function output(message) {
