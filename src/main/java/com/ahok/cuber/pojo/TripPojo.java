@@ -1,13 +1,9 @@
-package com.ahok.cuber.entity;
+package com.ahok.cuber.pojo;
 
-import org.hibernate.annotations.GenericGenerator;
-import javax.persistence.*;
+import com.ahok.cuber.entity.Trip;
 import java.util.Date;
 
-@Entity
-@Table(name = "trip")
-public class Trip {
-
+public class TripPojo {
 	private String id;
     private Float distance;
     private Date started_at;
@@ -16,44 +12,26 @@ public class Trip {
     private Float estimated_time;
     private String start_location;
     private String end_location;
-    private Status status;
-
-    @ManyToOne
-    @JoinColumn(name = "clientId")
-    private Client client;
-
-    @ManyToOne
-    @JoinColumn(name = "driverId")
-    private Driver driver;
-
-    @Column(columnDefinition = "DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP")
+    private Trip.Status status;
+    private ClientPojo client;
+    private DriverPojo driver;
     private Date created_at;
-
-    @Column(columnDefinition = "DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP")
     private Date updated_at;
 
-    @PrePersist
-    private void preInsert () {
-        this.created_at = new Date();
-        this.updated_at = new Date();
-    }
-
-    public enum Status {
-        CLIENT_WAITING (0),
-        CLIENT_PICKED_UP (1),
-        COULD_NOT_MEET (2),
-        FINISHED (3);
-
-        public int state;
-
-        Status (int state) {
-            this.state = state;
-        }
-    }
-
-    @PreUpdate
-    private void preUpdate () {
-        this.updated_at = new Date();
+    public TripPojo (Trip trip) {
+        this.id = trip.getId();
+        this.distance = trip.getDistance();
+        this.started_at = trip.getStarted_at();
+        this.ended_at = trip.getEnded_at();
+        this.price = trip.getPrice();
+        this.estimated_time = trip.getEstimated_time();
+        this.start_location = trip.getStart_location();
+        this.end_location = trip.getEnd_location();
+        this.status = trip.getStatus();
+        this.client = new ClientPojo(trip.getClient());
+        this.driver = new DriverPojo(trip.getDriver());
+        this.created_at = trip.getCreated_at();
+        this.updated_at = trip.getUpdated_at();
     }
 
     @Override
@@ -73,13 +51,6 @@ public class Trip {
                 '}';
     }
 
-    @Id
-    @GeneratedValue(generator = "UUID")
-    @GenericGenerator(
-            name = "UUID",
-            strategy = "com.ahok.cuber.util.UUIDGenerator"
-    )
-    @Column(name = "id", updatable = false, nullable = false)
     public String getId() {
         return id;
     }
@@ -88,19 +59,19 @@ public class Trip {
         this.id = id;
     }
 
-    public Client getClient() {
+    public ClientPojo getClient() {
         return client;
     }
 
-    public void setClient(Client client) {
+    public void setClient(ClientPojo client) {
         this.client = client;
     }
 
-    public Driver getDriver() {
+    public DriverPojo getDriver() {
         return driver;
     }
 
-    public void setDriver(Driver driver) {
+    public void setDriver(DriverPojo driver) {
         this.driver = driver;
     }
 
@@ -160,11 +131,11 @@ public class Trip {
         this.end_location = end_location;
     }
 
-    public Status getStatus() {
+    public Trip.Status getStatus() {
         return status;
     }
 
-    public void setStatus(Status status) {
+    public void setStatus(Trip.Status status) {
         this.status = status;
     }
 

@@ -40,9 +40,11 @@ function initSocket() {
             modal: true,
             buttons: {
                 "On My Way": function() {
+                    acceptTrip(client.id);
                     $( this ).dialog( "close" );
                 },
                 Cancel: function() {
+                    declineTrip(client.id);
                     $( this ).dialog( "close" );
                 }
             }
@@ -65,14 +67,16 @@ function sendLocation(user) {
     if (socket) socket.emit('get_location', jsonObject);
 }
 
+function acceptTrip(clientID) {
+    socket.emit('trip_accepted', clientID);
+}
+
+function declineTrip(clientID) {
+    socket.emit('trip_declined', clientID);
+}
+
 function output(message) {
     var currentTime = "<span class='time'>" + moment().format('HH:mm:ss.SSS') + "</span>";
     var element = $("<div>" + currentTime + " " + message + "</div>");
     $('#console').prepend(element);
 }
-
-$(document).keydown(function (e) {
-    if (e.keyCode == 13) {
-        $('#send').click();
-    }
-});

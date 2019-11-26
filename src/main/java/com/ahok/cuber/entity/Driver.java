@@ -2,20 +2,14 @@ package com.ahok.cuber.entity;
 
 import org.codehaus.jackson.annotate.JsonIgnore;
 import org.hibernate.annotations.GenericGenerator;
-import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
-import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
-@Component
 @Entity
 @Table(name = "driver")
-public class Driver implements Serializable {
-    /**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+public class Driver {
 	private String id;
     private String first_name;
     private String last_name;
@@ -26,6 +20,9 @@ public class Driver implements Serializable {
     private Gender gender;
     private String car_model;
     private String car_registration_number;
+
+    @OneToMany(mappedBy = "driver", targetEntity = Trip.class, fetch=FetchType.EAGER)
+    private List<Trip> trips;
 
     @Column(columnDefinition = "DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP")
     private Date created_at;
@@ -99,6 +96,14 @@ public class Driver implements Serializable {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public List<Trip> getTrips() {
+        return trips;
+    }
+
+    public void setTrips(List<Trip> trips) {
+        this.trips = trips;
     }
 
     public String getLast_name() {

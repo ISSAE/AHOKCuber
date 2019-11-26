@@ -1,7 +1,11 @@
 package com.ahok.cuber.socket.modules.driver;
 
+import com.ahok.cuber.entity.Trip;
 import com.ahok.cuber.pojo.DriverPojo;
+import com.ahok.cuber.pojo.TripPojo;
+import com.ahok.cuber.service.ClientService;
 import com.ahok.cuber.service.DriverService;
+import com.ahok.cuber.service.TripService;
 import com.ahok.cuber.socket.SocketService;
 import com.ahok.cuber.socket.modules.SocketUser;
 import com.ahok.cuber.socket.modules.UserLocation;
@@ -15,6 +19,8 @@ import com.corundumstudio.socketio.listener.DisconnectListener;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.Date;
+
 @Component
 public class DriverModule {
     private final SocketIONamespace namespace;
@@ -25,12 +31,20 @@ public class DriverModule {
     private DriverService driverService;
 
     @Autowired
+    private ClientService clientService;
+
+    @Autowired
+    private TripService tripService;
+
+    @Autowired
     public DriverModule(SocketService socketService) {
         this.server = socketService.getServer();
         this.namespace = server.addNamespace("/driver");
         this.namespace.addConnectListener(onConnected());
         this.namespace.addDisconnectListener(onDisconnected());
         this.namespace.addEventListener("get_location", UserLocation.class, onLocationReceived());
+        this.namespace.addEventListener("trip_accepted", String.class, onTripAccepted());
+        this.namespace.addEventListener("trip_declined", String.class, onTripDeclined());
     }
 
     private DataListener<UserLocation> onLocationReceived() {
@@ -42,7 +56,46 @@ public class DriverModule {
                 if (user != null) {
                     client.sendEvent("receive_location", new DriverPacket(new DriverPojo(driverService.getDriver(user.getUserID())), userLocation.getLocation()));
                 } else {
-                    System.out.println("Can't sent location to client from unknown client");
+                    System.out.println("Can't send location to unknown client");
+                }
+            }
+        };
+    }
+
+    private DataListener<String> onTripAccepted() {
+        return (driver, clientID, ackSender) -> {
+            SocketIOClient client = SocketUtil.get(this.server.getNamespace("/client"), clientID);
+            System.out.printf("Driver[%s] - Accepted Client request '%s'\n", driver.getSessionId().toString(), clientID);
+            if (client != null) {
+                SocketUser user = SocketUtil.auth(driver);
+                if (user != null) {
+                    Trip trip = new Trip();
+                    trip.setClient(clientService.getClient(clientID));
+                    trip.setDriver(driverService.getDriver(user.getUserID()));
+                    trip.setStarted_at(new Date());
+                    trip.setStatus(Trip.Status.CLIENT_WAITING);
+
+                    tripService.createTrip(trip);
+
+                    client.sendEvent("receive_location", new TripPojo(trip));
+                    client.sendEvent("trip_accepted", new TripPojo(trip));
+                } else {
+                    System.out.println("Can't accept trip request, client not found!");
+                }
+            }
+        };
+    }
+
+    private DataListener<String> onTripDeclined() {
+        return (driver, clientID, ackSender) -> {
+            SocketIOClient client = SocketUtil.get(this.server.getNamespace("/client"), clientID);
+            System.out.printf("Driver[%s] - Declined Client request '%s'\n", driver.getSessionId().toString(), clientID);
+            if (client != null) {
+                SocketUser user = SocketUtil.auth(driver);
+                if (user != null) {
+                    client.sendEvent("trip_declined", new DriverPacket(new DriverPojo(driverService.getDriver(user.getUserID())), ""));
+                } else {
+                    System.out.println("Can't decline Trip Request, client not found!");
                 }
             }
         };

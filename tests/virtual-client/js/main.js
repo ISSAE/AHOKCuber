@@ -32,6 +32,14 @@ function initSocket() {
         output('<span class="username-msg">Received Driver location: </span>' + JSON.stringify(data));
         $("#candidate-drivers").append(`<tr><td>${driver.first_name} ${driver.last_name} / ${driver.car_model} (${driver.car_registration_number})</td><td><button class="btn btn-primary" onclick="requestTrip('${driver.id}')">Request Trip</button></td></tr>`);
     });
+    socket.on('trip_accepted', function (trip) {
+        let driver = trip.driver;
+        alert(`${driver.first_name} ${driver.last_name} / ${driver.car_model} (${driver.car_registration_number}) Declined your Request! <br> ${JSON.stringify(trip)}`);
+    });
+    socket.on('trip_declined', function (data) {
+        let driver = data.driver;
+        alert(`${driver.first_name} ${driver.last_name} / ${driver.car_model} (${driver.car_registration_number}) Declined your Request!`);
+    });
     socket.on('disconnect', function () {
         output('<span class="disconnect-msg">The client has disconnected!</span>');
     });
@@ -62,9 +70,3 @@ function output(message) {
     var element = $("<div>" + currentTime + " " + message + "</div>");
     $('#console').prepend(element);
 }
-
-$(document).keydown(function (e) {
-    if (e.keyCode == 13) {
-        $('#send').click();
-    }
-});
