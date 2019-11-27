@@ -8,7 +8,15 @@ import java.util.Date;
 @Table(name = "trip")
 public class Trip {
 
+    @Id
+    @GeneratedValue(generator = "UUID")
+    @GenericGenerator(
+            name = "UUID",
+            strategy = "com.ahok.cuber.util.UUIDGenerator"
+    )
+    @Column(name = "id", updatable = false, nullable = false)
 	private String id;
+
     private Float distance;
     private Date started_at;
     private Date ended_at;
@@ -19,11 +27,11 @@ public class Trip {
     private Status status;
 
     @ManyToOne
-    @JoinColumn(name = "clientId")
+    @JoinColumn(name = "client_id")
     private Client client;
 
     @ManyToOne
-    @JoinColumn(name = "driverId")
+    @JoinColumn(name = "driver_id")
     private Driver driver;
 
     @Column(columnDefinition = "DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP")
@@ -73,13 +81,6 @@ public class Trip {
                 '}';
     }
 
-    @Id
-    @GeneratedValue(generator = "UUID")
-    @GenericGenerator(
-            name = "UUID",
-            strategy = "com.ahok.cuber.util.UUIDGenerator"
-    )
-    @Column(name = "id", updatable = false, nullable = false)
     public String getId() {
         return id;
     }

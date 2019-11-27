@@ -25,26 +25,32 @@ function initSocket() {
     });
 
     socket.on('connect', function (data) {
-        output('<span class="connect-msg">The client has connected with the server. session id: ' + socket.get + '</span>');
+        output('<span class="connect-msg">[connect] The client has connected with the server. Username: ' + userName + '</span>');
     });
     socket.on('receive_location', function (data) {
         let driver = data.driver;
-        output('<span class="username-msg">Received Driver location: </span>' + JSON.stringify(data));
+        output('<span class="username-msg">[receive_location] Received Driver location: </span>' + JSON.stringify(data));
         $("#candidate-drivers").append(`<tr><td>${driver.first_name} ${driver.last_name} / ${driver.car_model} (${driver.car_registration_number})</td><td><button class="btn btn-primary" onclick="requestTrip('${driver.id}')">Request Trip</button></td></tr>`);
     });
     socket.on('trip_accepted', function (trip) {
         let driver = trip.driver;
-        alert(`${driver.first_name} ${driver.last_name} / ${driver.car_model} (${driver.car_registration_number}) Declined your Request! <br> ${JSON.stringify(trip)}`);
+        output('<span class="username-msg">[trip_accepted] Driver accept your request: </span>' + JSON.stringify(trip));
+        alert(`${driver.first_name} ${driver.last_name} / ${driver.car_model} (${driver.car_registration_number}) Accepted your Request! <br> ${JSON.stringify(trip)}`);
     });
     socket.on('trip_declined', function (data) {
         let driver = data.driver;
+        output('<span class="disconnect-msg">[trip_declined] Driver decline your request: </span>' + JSON.stringify(data));
         alert(`${driver.first_name} ${driver.last_name} / ${driver.car_model} (${driver.car_registration_number}) Declined your Request!`);
     });
+    socket.on('request_location', function (user) {
+        output('<span class="username-msg">Received Location request from: </span>' + JSON.stringify(user));
+        sendLocation(user);
+    });
     socket.on('disconnect', function () {
-        output('<span class="disconnect-msg">The client has disconnected!</span>');
+        output('<span class="disconnect-msg">[disconnect] The client has disconnected!</span>');
     });
     socket.on('invalid_token', function () {
-        output('<span class="disconnect-msg">Token is invalid!!</span>');
+        output('<span class="disconnect-msg">[invalid_token] Token is invalid!!</span>');
     });
     socket.on('reconnect_attempt', (attempts) => {
         console.log('Try to reconnect at ' + attempts + ' attempt(s).');

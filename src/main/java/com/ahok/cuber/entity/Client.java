@@ -10,7 +10,16 @@ import java.util.List;
 @Entity
 @Table(name = "client")
 public class Client {
+
+    @Id
+    @GeneratedValue(generator = "UUID")
+    @GenericGenerator(
+            name = "UUID",
+            strategy = "com.ahok.cuber.util.UUIDGenerator"
+    )
+    @Column(name = "id", updatable = false, nullable = false)
 	private String id;
+
     private String first_name;
     private String last_name;
     private String phone_number;
@@ -79,13 +88,6 @@ public class Client {
                 '}';
     }
 
-    @Id
-    @GeneratedValue(generator = "UUID")
-    @GenericGenerator(
-            name = "UUID",
-            strategy = "com.ahok.cuber.util.UUIDGenerator"
-    )
-    @Column(name = "id", updatable = false, nullable = false)
     public String getId() {
         return id;
     }

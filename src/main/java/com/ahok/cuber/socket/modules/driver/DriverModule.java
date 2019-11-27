@@ -20,6 +20,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.Date;
+import java.util.Objects;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 @Component
 public class DriverModule {
@@ -76,8 +80,9 @@ public class DriverModule {
                     trip.setStatus(Trip.Status.CLIENT_WAITING);
 
                     tripService.createTrip(trip);
+                    driver.joinRoom(trip.getId());
+                    client.joinRoom(trip.getId());
 
-                    client.sendEvent("receive_location", new TripPojo(trip));
                     client.sendEvent("trip_accepted", new TripPojo(trip));
                 } else {
                     System.out.println("Can't accept trip request, client not found!");

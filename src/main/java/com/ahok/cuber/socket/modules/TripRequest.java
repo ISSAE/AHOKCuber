@@ -32,7 +32,7 @@ public class TripRequest {
 
     @Override
     public String toString() {
-        return "UserLocation{" +
+        return "TripRequest{" +
                 "clientLocation='" + clientLocation + '\'' +
                 ", driver=" + driver +
                 '}';
