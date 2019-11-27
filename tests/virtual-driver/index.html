@@ -44,8 +44,13 @@
         </div>
         <button onclick="login()" class="btn btn-primary">Request Token</button>
     </div>
+
+    <div class="col-12 text-center d-none" id="trip-actions">
+        <button type="button" onClick="driverArrived()" class="btn btn-primary">Driver Arrived</button>&nbsp;&nbsp;
+        <button type="button" onClick="couldNotMeet()" class="btn btn-danger">Could Not Meet</button>&nbsp;&nbsp;
+        <button type="button" onClick="arrivedToDest()" class="btn btn-success">Arrived to Destination</button>&nbsp;&nbsp;
+    </div>
 </div>
-<br>
 
 <div class="row">
     <div class="col-5">

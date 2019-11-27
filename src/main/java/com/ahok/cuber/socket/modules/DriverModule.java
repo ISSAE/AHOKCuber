@@ -1,14 +1,12 @@
-package com.ahok.cuber.socket.modules.driver;
+package com.ahok.cuber.socket.modules;
 
 import com.ahok.cuber.entity.Trip;
 import com.ahok.cuber.pojo.DriverPojo;
 import com.ahok.cuber.pojo.TripPojo;
-import com.ahok.cuber.service.ClientService;
-import com.ahok.cuber.service.DriverService;
-import com.ahok.cuber.service.TripService;
-import com.ahok.cuber.socket.SocketService;
-import com.ahok.cuber.socket.modules.SocketUser;
-import com.ahok.cuber.socket.modules.UserLocation;
+import com.ahok.cuber.socket.pojo.DriverPacket;
+import com.ahok.cuber.socket.service.SocketService;
+import com.ahok.cuber.socket.pojo.SocketUser;
+import com.ahok.cuber.socket.pojo.UserLocation;
 import com.ahok.cuber.util.SocketUtil;
 import com.corundumstudio.socketio.SocketIOClient;
 import com.corundumstudio.socketio.SocketIONamespace;
@@ -21,9 +19,8 @@ import org.springframework.stereotype.Component;
 
 import java.util.Date;
 import java.util.Objects;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.TimeUnit;
+import java.util.Timer;
+import java.util.TimerTask;
 
 @Component
 public class DriverModule {
@@ -31,17 +28,11 @@ public class DriverModule {
 
     private final SocketIOServer server;
 
-    @Autowired
-    private DriverService driverService;
-
-    @Autowired
-    private ClientService clientService;
-
-    @Autowired
-    private TripService tripService;
+    private final SocketService socketService;
 
     @Autowired
     public DriverModule(SocketService socketService) {
+        this.socketService = socketService;
         this.server = socketService.getServer();
         this.namespace = server.addNamespace("/driver");
         this.namespace.addConnectListener(onConnected());
@@ -49,6 +40,9 @@ public class DriverModule {
         this.namespace.addEventListener("get_location", UserLocation.class, onLocationReceived());
         this.namespace.addEventListener("trip_accepted", String.class, onTripAccepted());
         this.namespace.addEventListener("trip_declined", String.class, onTripDeclined());
+        this.namespace.addEventListener("driver_arrived", String.class, onDriverArrived());
+        this.namespace.addEventListener("could_not_meet", String.class, onCouldNotMeet());
+        this.namespace.addEventListener("arrived_to_dest", String.class, onArrivedToDest());
     }
 
     private DataListener<UserLocation> onLocationReceived() {
@@ -58,7 +52,7 @@ public class DriverModule {
             if (client != null) {
                 SocketUser user = SocketUtil.auth(driver);
                 if (user != null) {
-                    client.sendEvent("receive_location", new DriverPacket(new DriverPojo(driverService.getDriver(user.getUserID())), userLocation.getLocation()));
+                    client.sendEvent("receive_location", new DriverPacket(new DriverPojo(this.socketService.getDriverService().getDriver(user.getUserID())), userLocation.getLocation()));
                 } else {
                     System.out.println("Can't send location to unknown client");
                 }
@@ -74,16 +68,19 @@ public class DriverModule {
                 SocketUser user = SocketUtil.auth(driver);
                 if (user != null) {
                     Trip trip = new Trip();
-                    trip.setClient(clientService.getClient(clientID));
-                    trip.setDriver(driverService.getDriver(user.getUserID()));
+                    trip.setClient(this.socketService.getClientService().getClient(clientID));
+                    trip.setDriver(this.socketService.getDriverService().getDriver(user.getUserID()));
                     trip.setStarted_at(new Date());
                     trip.setStatus(Trip.Status.CLIENT_WAITING);
 
-                    tripService.createTrip(trip);
-                    driver.joinRoom(trip.getId());
-                    client.joinRoom(trip.getId());
+                    socketService.getTripService().createTrip(trip);
 
                     client.sendEvent("trip_accepted", new TripPojo(trip));
+
+                    client.joinRoom(trip.getId());
+                    driver.joinRoom(trip.getId());
+
+                    this.startTripNotifier(trip);
                 } else {
                     System.out.println("Can't accept trip request, client not found!");
                 }
@@ -98,11 +95,35 @@ public class DriverModule {
             if (client != null) {
                 SocketUser user = SocketUtil.auth(driver);
                 if (user != null) {
-                    client.sendEvent("trip_declined", new DriverPacket(new DriverPojo(driverService.getDriver(user.getUserID())), ""));
+                    client.sendEvent("trip_declined", new DriverPacket(new DriverPojo(this.socketService.getDriverService().getDriver(user.getUserID())), ""));
                 } else {
                     System.out.println("Can't decline Trip Request, client not found!");
                 }
             }
+        };
+    }
+
+    private DataListener<String> onDriverArrived() {
+        return (driver, tripID, ackSender) -> {
+            Trip trip = socketService.getTripService().getTrip(tripID);
+            trip.setStatus(Trip.Status.CLIENT_PICKED_UP);
+            socketService.getTripService().updateTrip(trip);
+        };
+    }
+
+    private DataListener<String> onCouldNotMeet() {
+        return (driver, tripID, ackSender) -> {
+            Trip trip = socketService.getTripService().getTrip(tripID);
+            trip.setStatus(Trip.Status.COULD_NOT_MEET);
+            socketService.getTripService().updateTrip(trip);
+        };
+    }
+
+    private DataListener<String> onArrivedToDest() {
+        return (driver, tripID, ackSender) -> {
+            Trip trip = socketService.getTripService().getTrip(tripID);
+            trip.setStatus(Trip.Status.FINISHED);
+            socketService.getTripService().updateTrip(trip);
         };
     }
 
@@ -123,6 +144,30 @@ public class DriverModule {
                 disconnect(driver, "Invalid Token");
             }
         };
+    }
+
+    private void startTripNotifier (Trip trip) {
+        SocketIOClient client = SocketUtil.get(this.server.getNamespace("/client"), trip.getClient().getId());
+        SocketIOClient driver = SocketUtil.get(this.server.getNamespace("/driver"), trip.getDriver().getId());
+
+        final SocketUser cRO = SocketUtil.auth(Objects.requireNonNull(client)); // request object
+        final SocketUser dRO = SocketUtil.auth(Objects.requireNonNull(driver));
+        final String tripID = trip.getId();
+
+        this.socketService.broadCastToRoom(new TripPojo(trip), tripID, "trip_updated");
+
+        Timer t = new Timer();
+        t.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                Trip _trip = socketService.getTripService().getTrip(tripID);
+                if (_trip.getStatus() == Trip.Status.COULD_NOT_MEET || _trip.getStatus() == Trip.Status.FINISHED || _trip.getStatus() == Trip.Status.CLIENT_PICKED_UP) {
+                    t.cancel();
+                }
+                client.sendEvent("request_location", dRO);
+                driver.sendEvent("request_location", cRO);
+            }
+        }, 0, 1000);
     }
 
     private void disconnect (SocketIOClient client, String message) {

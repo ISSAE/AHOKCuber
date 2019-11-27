@@ -1,4 +1,4 @@
-package com.ahok.cuber.socket.modules.client;
+package com.ahok.cuber.socket.pojo;
 import com.ahok.cuber.pojo.ClientPojo;
 
 public class ClientPacket {

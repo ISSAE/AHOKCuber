@@ -57,6 +57,11 @@
             </tbody>
         </table>
     </div>
+    <div class="col-12 text-center d-none" id="trip-actions">
+        <button type="button" onClick="driverArrived()" class="btn btn-primary">Driver Arrived</button>&nbsp;&nbsp;
+        <button type="button" onClick="couldNotMeet()" class="btn btn-danger">Could Not Meet</button>&nbsp;&nbsp;
+        <button type="button" onClick="arrivedToDest()" class="btn btn-success">Arrived to Destination</button>&nbsp;&nbsp;
+    </div>
 </div>
 
 <div class="row">
@@ -76,6 +81,10 @@
     <button type="button" onClick="requestLocation()" class="btn btn-light">Request Location</button>&nbsp;&nbsp;
     <button type="button" onClick="sendDisconnect()" class="btn btn-dark">Disconnect</button>
 </form>
+
+<div id="trip_response" title="Trip Response" style="display: none;">
+    <p><span class="ui-icon ui-icon-alert" style="float:left; margin:12px 12px 20px 0;"></span><span class="text"></span></p>
+</div>
 
 <script src="js/socket.io-2.2.0.js"></script>
 <script src="js/moment-2.24.0.min.js"></script>

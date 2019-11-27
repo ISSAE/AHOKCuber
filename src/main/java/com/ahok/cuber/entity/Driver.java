@@ -30,7 +30,7 @@ public class Driver {
     private String car_model;
     private String car_registration_number;
 
-    @OneToMany(mappedBy = "driver", targetEntity = Trip.class, fetch=FetchType.EAGER)
+    @OneToMany(mappedBy = "driver", targetEntity = Trip.class, fetch=FetchType.LAZY)
     private List<Trip> trips;
 
     @Column(columnDefinition = "DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP")

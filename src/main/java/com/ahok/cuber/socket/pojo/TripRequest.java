@@ -1,4 +1,4 @@
-package com.ahok.cuber.socket.modules;
+package com.ahok.cuber.socket.pojo;
 
 public class TripRequest {
 

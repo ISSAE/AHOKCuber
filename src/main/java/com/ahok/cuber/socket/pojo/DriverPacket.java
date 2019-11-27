@@ -1,4 +1,4 @@
-package com.ahok.cuber.socket.modules.driver;
+package com.ahok.cuber.socket.pojo;
 import com.ahok.cuber.pojo.DriverPojo;
 
 public class DriverPacket {

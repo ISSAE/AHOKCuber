@@ -1,6 +1,6 @@
 package com.ahok.cuber.util;
 
-import com.ahok.cuber.socket.modules.SocketUser;
+import com.ahok.cuber.socket.pojo.SocketUser;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.JWTVerifier;
 import com.auth0.jwt.algorithms.Algorithm;

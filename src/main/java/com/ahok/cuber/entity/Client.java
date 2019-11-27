@@ -28,7 +28,7 @@ public class Client {
     private String password;
     private Gender gender;
 
-    @OneToMany(mappedBy = "client", targetEntity = Trip.class, fetch=FetchType.EAGER)
+    @OneToMany(mappedBy = "client", targetEntity = Trip.class, fetch=FetchType.LAZY)
     private List<Trip> trips;
 
     @Column(columnDefinition = "DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP")

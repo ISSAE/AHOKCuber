@@ -2,7 +2,6 @@ package com.ahok.cuber.controller;
 
 import com.ahok.cuber.entity.Client;
 import com.ahok.cuber.service.ClientService;
-import com.ahok.cuber.socket.SocketService;
 import com.ahok.cuber.util.http.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

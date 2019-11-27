@@ -1,6 +1,7 @@
-var userName = 'user' + Math.floor((Math.random() * 1000) + 1);
-var driverLocation = 'lat: ' + Math.floor((Math.random() * 1000) + 1) + ", log: " + Math.floor((Math.random() * 1000) + 1);
-var socket = null;
+let userName = 'user' + Math.floor((Math.random() * 1000) + 1);
+let driverLocation = 'lat: ' + Math.floor((Math.random() * 1000) + 1) + ", log: " + Math.floor((Math.random() * 1000) + 1);
+let socket = null;
+let trip = null;
 
 function login() {
     $.ajax({
@@ -18,19 +19,30 @@ function login() {
         output('<span class="disconnect-msg">' + jqXHR.responseJSON.body + '</span>')
     });
 }
+
 function initSocket() {
-    socket = io('http://localhost:9092/driver?token=' + $("#token").val(), {
+    socket = io(`http://localhost:9092/driver?token=${$("#token").val()}`, {
         transports: ['polling', 'websocket']
     });
     socket.on('connect', function () {
-        output('<span class="connect-msg">The driver has connected with the server. Username: ' + userName + '</span>');
+        output(`<span class="connect-msg">[connect] The driver has connected with the server. Username: ${userName}</span>`);
     });
     socket.on('request_location', function (user) {
-        output('<span class="username-msg">Received Location request from: </span>' + JSON.stringify(user));
+        output(`<span class="username-msg">[request_location] Received Location request from: </span>${JSON.stringify(user)}`);
         sendLocation(user);
     });
+    socket.on('trip_updated', function (_trip) {
+        trip = _trip;
+        if (trip.status === "COULD_NOT_MEET" || trip.status === "FINISHED") {
+            finish();
+        }
+        output(`<span class="username-msg">[trip_updated] Trip Updated: </span>${JSON.stringify(_trip)}`);
+    });
+    socket.on('receive_location', function (data) {
+        output(`<span class="username-msg">[receive_location] Received Client location: </span>${JSON.stringify(data)}`);
+    });
     socket.on('request_trip', function (data) {
-        output('<span class="username-msg">Received Trip request from: </span>' + JSON.stringify(data));
+        output(`<span class="username-msg">[request_trip] Received Trip request from: </span>${JSON.stringify(data)}`);
         let client = data.client;
         $("#trip_request .text").text(`${client.first_name} ${client.last_name} / ${data.location}`);
         $( "#trip_request" ).dialog({
@@ -54,7 +66,7 @@ function initSocket() {
         output('<span class="disconnect-msg">The client has disconnected!</span>');
     });
     socket.on('reconnect_attempt', (attempts) => {
-        console.log('Try to reconnect at ' + attempts + ' attempt(s).');
+        console.log(`Try to reconnect at ${attempts} attempt(s).`);
     });
 }
 
@@ -63,12 +75,33 @@ function sendDisconnect() {
 }
 
 function sendLocation(user) {
-    var jsonObject = {user: user, location: driverLocation};
+    let jsonObject = {user: user, location: driverLocation};
     if (socket) socket.emit('get_location', jsonObject);
 }
 
 function acceptTrip(clientID) {
+    $("#trip-actions").removeClass('d-none');
     socket.emit('trip_accepted', clientID);
+}
+
+function driverArrived () {
+    socket.emit('driver_arrived', trip.id);
+}
+
+function couldNotMeet () {
+    socket.emit('could_not_meet', trip.id);
+    finish();
+}
+
+function arrivedToDest () {
+    socket.emit('arrived_to_dest', trip.id);
+    finish();
+}
+
+function finish() {
+    $("#trip-actions").addClass('d-none');
+    trip = null;
+    $("#candidate-drivers").html("");
 }
 
 function declineTrip(clientID) {
@@ -76,7 +109,7 @@ function declineTrip(clientID) {
 }
 
 function output(message) {
-    var currentTime = "<span class='time'>" + moment().format('HH:mm:ss.SSS') + "</span>";
-    var element = $("<div>" + currentTime + " " + message + "</div>");
+    let currentTime = `<span class='time'>${moment().format('HH:mm:ss.SSS')}</span>`;
+    let element = $(`<div>${currentTime} ${message}</div>`);
     $('#console').prepend(element);
 }
