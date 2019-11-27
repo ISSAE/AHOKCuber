@@ -45,7 +45,7 @@ public class DriverController {
         if (action == null) {
             return Response.badRequest(String.format("Driver with email (%s) already exists", driver.getEmail()));
         }
-        return Response.ok(driverService.createDriver(driver));
+        return Response.ok(driver);
     }
 
     @CrossOrigin(origins = "*")
