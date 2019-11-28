@@ -12,12 +12,34 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Rest CRUD Driver Controller
+ * <p>
+ * Available endpoints:
+ * <ul>
+ * <li><b>GET</b>    drivers/all            Get a list of all {@link Driver}s</li>
+ * <li><b>GET</b>    drivers/get/{id}       Get {@link Driver} by id</li>
+ * <li><b>POST</b>   drivers/add            Add new {@link Driver}</li>
+ * <li><b>PUT</b>    drivers/update         Update {@link Driver}</li>
+ * <li><b>DELETE</b> drivers/delete/{id}    Delete {@link Driver}</li>
+ * </ul>
+ */
 @RestController
 public class DriverController {
 
+    /**
+     * Hibernate Service to manage Driver Module
+     */
     @Autowired
     private DriverService driverService;
 
+    /**
+     * Get All Drivers
+     * <p>
+     * Method: GET
+     *
+     * @return driversList DriverPojo
+     */
     @CrossOrigin(origins = "*")
     @RequestMapping(value = "drivers/all",
             produces = "application/json;charset=UTF-8",
@@ -33,6 +55,15 @@ public class DriverController {
         return Response.ok(driversList);
     }
 
+    /**
+     * Get Driver by ID
+     * <p>
+     * Method: GET
+     *
+     * @param driverId PathVariable String
+     *
+     * @return driver DriverPojo
+     */
     @CrossOrigin(origins = "*")
     @RequestMapping(value = "drivers/get/{id}",
             produces = "application/json;charset=UTF-8",
@@ -41,6 +72,15 @@ public class DriverController {
         return Response.ok(new DriverPojo(driverService.getDriver(driverId)));
     }
 
+    /**
+     * Create new Driver
+     * <p>
+     * Method: POST
+     *
+     * @param driver Driver
+     *
+     * @return driver DriverPojo
+     */
     @CrossOrigin(origins = "*")
     @RequestMapping(value = "drivers/add",
             produces = "application/json;charset=UTF-8",
@@ -54,6 +94,15 @@ public class DriverController {
         return Response.ok(new DriverPojo(driver));
     }
 
+    /**
+     * Update Driver
+     * <p>
+     * Method: PUT
+     *
+     * @param driver Driver
+     *
+     * @return message String
+     */
     @CrossOrigin(origins = "*")
     @RequestMapping(value = "drivers/update",
             produces = "application/json;charset=UTF-8",
@@ -66,6 +115,15 @@ public class DriverController {
         return Response.ok(driverService.updateDriver(driver));
     }
 
+    /**
+     * Delete Driver by id
+     * <p>
+     * Method: DELETE
+     *
+     * @param driverId PathVariable String
+     *
+     * @return message String
+     */
     @CrossOrigin(origins = "*")
     @RequestMapping(value = "drivers/delete/{id}",
             produces = "application/json;charset=UTF-8",
