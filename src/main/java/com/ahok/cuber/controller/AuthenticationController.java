@@ -20,15 +20,45 @@ import org.springframework.web.bind.annotation.*;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Rest Authentication Controller
+ * <p>
+ * Class that manage users Authentications
+ * <p>
+ * Available endpoints:
+ * <ul>
+ * <li>auth/token            ({@link Client} login)</li>
+ * <li>auth/client/register  ({@link Client} Registration)</li>
+ * <li>auth/driver/token     ({@link Driver} login)</li>
+ * <li>auth/driver/register  ({@link Driver} Registration)</li>
+ * </ul>
+ */
 @RestController
 public class AuthenticationController {
 
+    /**
+     * Hibernate Service to manage Client Module
+     */
     @Autowired
     private ClientService clientService;
 
+    /**
+     * Hibernate Service to manage Driver Module
+     */
     @Autowired
     private DriverService driverService;
 
+    /**
+     * {@link Client} login endpoint (auth/token).
+     *
+     * @param user {@link UserLoginPojo}
+     *             Required object fields:
+     *             <ul>
+     *             <li>email</li>
+     *             <li>password</li>
+     *             </ul>
+     * @return authResponse {@link AuthResponsePojo}
+     */
     @CrossOrigin(origins = "*")
     @RequestMapping(value = "auth/token",
             produces = "application/json;charset=UTF-8",
@@ -46,6 +76,17 @@ public class AuthenticationController {
         }
     }
 
+    /**
+     * {@link Driver} login endpoint (auth/driver/token).
+     *
+     * @param user {@link UserLoginPojo}
+     *             Required object fields:
+     *             <ul>
+     *             <li>email</li>
+     *             <li>password</li>
+     *             </ul>
+     * @return authResponse {@link AuthResponsePojo}
+     */
     @CrossOrigin(origins = "*")
     @RequestMapping(value = "auth/driver/token",
             produces = "application/json;charset=UTF-8",
@@ -63,6 +104,12 @@ public class AuthenticationController {
         }
     }
 
+    /**
+     * Register a new {@link Client}
+     *
+     * @param client {@link Client}
+     * @return authResponse {@link AuthResponsePojo}
+     */
     @CrossOrigin(origins = "*")
     @RequestMapping(value = "auth/client/register",
             produces = "application/json;charset=UTF-8",
@@ -82,6 +129,12 @@ public class AuthenticationController {
         }
     }
 
+    /**
+     * Register a new {@link Driver}
+     *
+     * @param driver {@link Driver}
+     * @return authResponse {@link AuthResponsePojo}
+     */
     @CrossOrigin(origins = "*")
     @RequestMapping(value = "auth/driver/register",
             produces = "application/json;charset=UTF-8",
@@ -101,6 +154,14 @@ public class AuthenticationController {
         }
     }
 
+    /**
+     * Generate a JWT token for {@link Client} or {@link Driver}.
+     *
+     * @param id       Token owner id.
+     * @param isDriver Determine if the token will be generated for a {@link Client} or {@link Driver}.
+     * @return String token (JWT Token)
+     * @throws JWTCreationException JWT encoding exception
+     */
     private String generateToken(String id, boolean isDriver) throws JWTCreationException {
         Algorithm algorithm = Algorithm.HMAC256(Config.getProperty("AUTH_PASSPHRASE"));
         Map<String, Object> headerClaims = new HashMap<>();
