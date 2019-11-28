@@ -1,6 +1,8 @@
 package com.ahok.cuber.controller;
 
 import com.ahok.cuber.entity.Trip;
+import com.ahok.cuber.pojo.DriverPojo;
+import com.ahok.cuber.pojo.TripPojo;
 import com.ahok.cuber.service.TripService;
 import com.ahok.cuber.util.http.Response;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -24,7 +27,11 @@ public class TripController {
         List<Trip> tripsList =
                 tripService
                         .getAllTrips();
-        return Response.ok(tripsList);
+
+        List<TripPojo> trips = new ArrayList<>();
+        tripsList.forEach(trip -> trips.add(new TripPojo(trip)));
+
+        return Response.ok(trips);
     }
 
     @CrossOrigin(origins = "*")
@@ -32,7 +39,7 @@ public class TripController {
             produces = "application/json;charset=UTF-8",
             method = RequestMethod.GET)
     public ResponseEntity getTrip(@PathVariable("id") String tripId) {
-        return Response.ok(tripService.getTrip(tripId));
+        return Response.ok(new TripPojo(tripService.getTrip(tripId)));
     }
 
     @CrossOrigin(origins = "*")
@@ -41,8 +48,8 @@ public class TripController {
             consumes = "application/json",
             method = RequestMethod.POST)
     public ResponseEntity createTrip(@RequestBody @Validated Trip trip) {
-        String action = tripService.createTrip(trip);
-        return Response.ok(trip);
+        tripService.createTrip(trip);
+        return Response.ok(new TripPojo(trip));
     }
 
     @CrossOrigin(origins = "*")

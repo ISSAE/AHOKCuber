@@ -1,6 +1,9 @@
 package com.ahok.cuber.controller;
 
-import com.ahok.cuber.controller.reqpojo.UserLogin;
+import com.ahok.cuber.pojo.AuthResponsePojo;
+import com.ahok.cuber.pojo.ClientPojo;
+import com.ahok.cuber.pojo.DriverPojo;
+import com.ahok.cuber.pojo.UserLoginPojo;
 import com.ahok.cuber.entity.Client;
 import com.ahok.cuber.entity.Driver;
 import com.ahok.cuber.service.ClientService;
@@ -31,12 +34,16 @@ public class AuthenticationController {
             produces = "application/json;charset=UTF-8",
             consumes = "application/json",
             method = RequestMethod.POST)
-    public ResponseEntity token(@RequestBody UserLogin user) {
+    public ResponseEntity token(@RequestBody UserLoginPojo user) {
         Client client = clientService.getAuth(user.getEmail(), user.getPassword());
 
         if (client == null) return Response.badRequest("Wrong username or password");
-
-        return generateToken(client.getId(), false);
+        try {
+            String token = generateToken(client.getId(), false);
+            return Response.ok(new AuthResponsePojo<>(new ClientPojo(client), token));
+        } catch (JWTCreationException exception) {
+            return Response.internalError(String.format("Can't create a token! Error Message: %s", exception.getMessage()));
+        }
     }
 
     @CrossOrigin(origins = "*")
@@ -44,12 +51,16 @@ public class AuthenticationController {
             produces = "application/json;charset=UTF-8",
             consumes = "application/json",
             method = RequestMethod.POST)
-    public ResponseEntity driverToken(@RequestBody UserLogin user) {
+    public ResponseEntity driverToken(@RequestBody UserLoginPojo user) {
         Driver driver = driverService.getAuth(user.getEmail(), user.getPassword());
 
         if (driver == null) return Response.badRequest("Wrong username or password");
-
-        return generateToken(driver.getId(), true);
+        try {
+            String token = generateToken(driver.getId(), true);
+            return Response.ok(new AuthResponsePojo<>(new DriverPojo(driver), token));
+        } catch (JWTCreationException exception) {
+            return Response.internalError(String.format("Can't create a token! Error Message: %s", exception.getMessage()));
+        }
     }
 
     @CrossOrigin(origins = "*")
@@ -63,7 +74,12 @@ public class AuthenticationController {
             return Response.badRequest(String.format("Client with email (%s) already exists", client.getEmail()));
         }
         clientService.createClient(client);
-        return generateToken(client.getId(), false);
+        try {
+            String token = generateToken(client.getId(), false);
+            return Response.ok(new AuthResponsePojo<>(new ClientPojo(client), token));
+        } catch (JWTCreationException exception) {
+            return Response.internalError(String.format("Can't create a token! Error Message: %s", exception.getMessage()));
+        }
     }
 
     @CrossOrigin(origins = "*")
@@ -77,21 +93,22 @@ public class AuthenticationController {
             return Response.badRequest(String.format("Driver with email (%s) already exists", driver.getEmail()));
         }
         driverService.createDriver(driver);
-        return generateToken(driver.getId(), true);
-    }
-
-    private ResponseEntity generateToken(String id, boolean isDriver) {
         try {
-            Algorithm algorithm = Algorithm.HMAC256(Config.getProperty("AUTH_PASSPHRASE"));
-            Map<String, Object> headerClaims = new HashMap();
-            headerClaims.put("ownerID", id);
-            headerClaims.put("isDriver", isDriver);
-            return Response.ok(JWT.create()
-                    .withHeader(headerClaims)
-                    .withIssuer("cuber")
-                    .sign(algorithm));
+            String token = generateToken(driver.getId(), true);
+            return Response.ok(new AuthResponsePojo<>(new DriverPojo(driver), token));
         } catch (JWTCreationException exception) {
             return Response.internalError(String.format("Can't create a token! Error Message: %s", exception.getMessage()));
         }
+    }
+
+    private String generateToken(String id, boolean isDriver) throws JWTCreationException {
+        Algorithm algorithm = Algorithm.HMAC256(Config.getProperty("AUTH_PASSPHRASE"));
+        Map<String, Object> headerClaims = new HashMap<>();
+        headerClaims.put("ownerID", id);
+        headerClaims.put("isDriver", isDriver);
+        return JWT.create()
+                .withHeader(headerClaims)
+                .withIssuer("cuber")
+                .sign(algorithm);
     }
 }

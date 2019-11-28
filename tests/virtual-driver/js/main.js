@@ -2,6 +2,7 @@ let userName = 'user' + Math.floor((Math.random() * 1000) + 1);
 let driverLocation = 'lat: ' + Math.floor((Math.random() * 1000) + 1) + ", log: " + Math.floor((Math.random() * 1000) + 1);
 let socket = null;
 let trip = null;
+let driver = null;
 
 function login() {
     $.ajax({
@@ -13,8 +14,9 @@ function login() {
             password: $("#password").val()
         })
     }).done(function (data) {
-        output('<span class="username-msg"> Login success... Token => <b>' + data.body + '</b></span>');
-        $("#token").val(data.body);
+        driver = data.body.entity;
+        output('<span class="username-msg"> Login success... Token => <b>' + data.body.token + '</b></span>');
+        $("#token").val(data.body.token);
     }).fail(function (jqXHR) {
         output('<span class="disconnect-msg">' + jqXHR.responseJSON.body + '</span>')
     });

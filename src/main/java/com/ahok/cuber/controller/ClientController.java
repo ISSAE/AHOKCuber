@@ -1,6 +1,7 @@
 package com.ahok.cuber.controller;
 
 import com.ahok.cuber.entity.Client;
+import com.ahok.cuber.pojo.ClientPojo;
 import com.ahok.cuber.service.ClientService;
 import com.ahok.cuber.util.http.Response;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -24,7 +26,11 @@ public class ClientController {
         List<Client> clientsList =
                 clientService
                         .getAllClients();
-        return Response.ok(clientsList);
+
+        List<ClientPojo> clients = new ArrayList<>();
+        clientsList.forEach(client -> clients.add(new ClientPojo(client)));
+
+        return Response.ok(clients);
     }
 
     @CrossOrigin(origins = "*")
@@ -32,7 +38,7 @@ public class ClientController {
             produces = "application/json;charset=UTF-8",
             method = RequestMethod.GET)
     public ResponseEntity getClient(@PathVariable("id") String clientId) {
-        return Response.ok(clientService.getClient(clientId));
+        return Response.ok(new ClientPojo(clientService.getClient(clientId)));
     }
 
     @CrossOrigin(origins = "*")
@@ -45,7 +51,7 @@ public class ClientController {
         if (action == null) {
             return Response.badRequest(String.format("Client with email (%s) already exists", client.getEmail()));
         }
-        return Response.ok(client);
+        return Response.ok(new ClientPojo(client));
     }
 
     @CrossOrigin(origins = "*")

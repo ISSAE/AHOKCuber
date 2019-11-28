@@ -1,6 +1,7 @@
 package com.ahok.cuber.controller;
 
 import com.ahok.cuber.entity.Driver;
+import com.ahok.cuber.pojo.DriverPojo;
 import com.ahok.cuber.service.DriverService;
 import com.ahok.cuber.util.http.Response;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -24,6 +26,10 @@ public class DriverController {
         List<Driver> driversList =
                 driverService
                         .getAllDrivers();
+
+        List<DriverPojo> drivers = new ArrayList<>();
+        driversList.forEach(driver -> drivers.add(new DriverPojo(driver)));
+
         return Response.ok(driversList);
     }
 
@@ -32,7 +38,7 @@ public class DriverController {
             produces = "application/json;charset=UTF-8",
             method = RequestMethod.GET)
     public ResponseEntity getDriver(@PathVariable("id") String driverId) {
-        return Response.ok(driverService.getDriver(driverId));
+        return Response.ok(new DriverPojo(driverService.getDriver(driverId)));
     }
 
     @CrossOrigin(origins = "*")
@@ -45,7 +51,7 @@ public class DriverController {
         if (action == null) {
             return Response.badRequest(String.format("Driver with email (%s) already exists", driver.getEmail()));
         }
-        return Response.ok(driver);
+        return Response.ok(new DriverPojo(driver));
     }
 
     @CrossOrigin(origins = "*")

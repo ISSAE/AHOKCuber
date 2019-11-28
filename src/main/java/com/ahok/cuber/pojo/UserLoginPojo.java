@@ -1,12 +1,14 @@
-package com.ahok.cuber.controller.reqpojo;
+package com.ahok.cuber.pojo;
 
-public class UserLogin {
+import java.io.Serializable;
+
+public class UserLoginPojo implements Serializable {
     private String email;
     private String password;
 
     @Override
     public String toString() {
-        return "UserLogin{" +
+        return "UserLoginPojo{" +
                 "email='" + email + '\'' +
                 ", password='" + password + '\'' +
                 '}';
