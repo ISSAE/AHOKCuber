@@ -2,9 +2,10 @@ package com.ahok.cuber.pojo;
 
 import com.ahok.cuber.entity.Driver;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class DriverPojo {
+public class DriverPojo implements Serializable {
     private String id;
     private String first_name;
     private String last_name;

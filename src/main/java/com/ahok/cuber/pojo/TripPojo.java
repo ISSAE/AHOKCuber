@@ -1,9 +1,11 @@
 package com.ahok.cuber.pojo;
 
 import com.ahok.cuber.entity.Trip;
+
+import java.io.Serializable;
 import java.util.Date;
 
-public class TripPojo {
+public class TripPojo implements Serializable {
 	private String id;
     private Float distance;
     private Date started_at;
