@@ -23,7 +23,7 @@ public class SocketService {
 
     public SocketService() {
         Configuration config = new Configuration();
-        config.setHostname("localhost");
+        config.setHostname("0.0.0.0");
         config.setPort(9092);
         this.server = new SocketIOServer(config);
         this.server.start();

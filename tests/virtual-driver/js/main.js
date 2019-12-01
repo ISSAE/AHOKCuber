@@ -5,7 +5,7 @@ let trip = null;
 
 function login() {
     $.ajax({
-        url: "http://localhost:8080/cuber/auth/driver/token",
+        url: "http://localhost:9090/Cuber/auth/driver/token",
         type: "post",
         contentType: "application/json",
         data: JSON.stringify({
