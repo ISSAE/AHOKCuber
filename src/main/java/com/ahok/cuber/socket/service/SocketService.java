@@ -46,7 +46,7 @@ public class SocketService {
     }
 
     public <T> void broadCastToRoom(T object, String roomName, String event) {
-        this.getServer().getNamespace("/driver").getRoomOperations(roomName).sendEvent("trip_updated", object);
-        this.getServer().getNamespace("/client").getRoomOperations(roomName).sendEvent("trip_updated", object);
+        this.getServer().getNamespace("/driver").getRoomOperations(roomName).sendEvent(event, object);
+        this.getServer().getNamespace("/client").getRoomOperations(roomName).sendEvent(event, object);
     }
 }
