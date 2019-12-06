@@ -6,7 +6,7 @@ let client = null;
 
 function login() {
     $.ajax({
-        url: "http://localhost:9090/Cuber/auth/token",
+        url: "https://15.188.103.133/Cuber/auth/token",
         type: "post",
         contentType: "application/json",
         data: JSON.stringify({
@@ -23,7 +23,7 @@ function login() {
 }
 
 function initSocket() {
-    socket = io(`http://localhost:9092/client?token=${$("#token").val()}`, {
+    socket = io(`https://15.188.103.133/CuberSocket/client?token=${$("#token").val()}`, {
         transports: ['polling', 'websocket']
     });
     socket.on('connect', function (data) {
@@ -120,7 +120,8 @@ function finish() {
 }
 
 function requestTrip(driverID) {
-    let jsonObject = {clientLocation: clientLocation, driver: driverID};
+    let jsonObject = {
+        clientLocation: JSON.stringify(this.start), clientDestination: JSON.stringify(this.destination), driver: driverID};
     socket.emit('request_trip', jsonObject);
 }
 
