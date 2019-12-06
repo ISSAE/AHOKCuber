@@ -9,7 +9,7 @@ hibernate.show_sql=false
 hibernate.format_sql=true
 hibernate.hbm2ddl.auto=update
 
-cuber-socket-server.host=localhost
+cuber-socket-server.host=${serverHost}
 cuber-socket-server.port=9092
 
 AUTH_PASSPHRASE=reacthardwaredragscott

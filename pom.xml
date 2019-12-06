@@ -9,6 +9,29 @@
     <version>1.0</version>
     <name>Cuber</name>
 
+    <profiles>
+        <profile>
+            <id>Dev</id>
+            <properties>
+                <serverHost>localhost</serverHost>
+                <serverPort>8081</serverPort>
+                <warPath>B:\software\AHOKCuber\target\cuber.war</warPath>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>Prod</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <serverHost>15.188.103.133</serverHost>
+                <serverPort>8080</serverPort>
+                <warPath>/var/www/html/AHOKCuber/target/cuber.war</warPath>
+            </properties>
+        </profile>
+    </profiles>
+
     <build>
         <finalName>cuber</finalName>
         <plugins>
@@ -20,7 +43,36 @@
                 <configuration>
                     <source>8</source>
                     <target>8</target>
+<!--                    <fork>true</fork>-->
+<!--                    <executable>C:\Program Files\Java\jdk1.8.0_171\bin\javac.exe</executable>-->
                 </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.tomee.maven</groupId>
+                <artifactId>tomee-maven-plugin</artifactId>
+                <version>8.0.0</version>
+                <configuration>
+                    <context>${project.artifactId}</context>
+                    <tomeeClassifier>plus</tomeeClassifier>
+                    <tomeeHost>${serverHost}</tomeeHost>
+                    <debugPort>8000</debugPort>
+                    <tomeeAjpPort>8009</tomeeAjpPort>
+                    <tomeeHttpPort>8080</tomeeHttpPort>
+                    <tomeeShutdownPort>8005</tomeeShutdownPort>
+                    <useBinaries>true</useBinaries>
+                    <path>${warPath}</path>
+                    <systemVariables>
+                        <openejb.system.apps>true</openejb.system.apps>
+                        <tomee.remote.support>true</tomee.remote.support>
+                    </systemVariables>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>2.0.0.RELEASE</version>
             </plugin>
         </plugins>
     </build>
