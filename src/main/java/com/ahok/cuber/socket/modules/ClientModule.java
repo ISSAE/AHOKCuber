@@ -47,7 +47,8 @@ public class ClientModule {
             if (_driver != null) {
                 SocketUser user = SocketUtil.auth(client);
                 if (user != null) {
-                    _driver.sendEvent("receive_location", new ClientPacket(new ClientPojo(this.socketService.getClientService().getClient(user.getUserID())), userLocation.getLocation()));
+                    _driver.sendEvent("receive_location",
+                            new ClientPacket(new ClientPojo(this.socketService.getClientService().getClient(user.getUserID())), userLocation.getLocation(), ""));
                 } else {
                     System.out.println("Can't send location to unknown driver");
                 }
@@ -69,7 +70,10 @@ public class ClientModule {
             System.out.println(String.format("Client[%s] - Request Trip from driver %s.\n", client.getSessionId().toString(), tripRequest.getDriver()));
             SocketIOClient driverSocket = SocketUtil.get(this.server.getNamespace("/driver"), tripRequest.getDriver());
             if (driverSocket != null) {
-                driverSocket.sendEvent("request_trip", new ClientPacket(new ClientPojo(this.socketService.getClientService().getClient(user.getUserID())), tripRequest.getClientLocation()));
+                System.out.println(tripRequest.getClientDestination());
+                driverSocket.sendEvent("request_trip", new ClientPacket(
+                        new ClientPojo(this.socketService.getClientService().getClient(user.getUserID())),
+                                        tripRequest.getClientLocation(), tripRequest.getClientDestination()));
             }
         };
     }

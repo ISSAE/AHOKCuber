@@ -3,15 +3,17 @@ package com.ahok.cuber.socket.pojo;
 public class TripRequest {
 
     private String clientLocation;
+    private String clientDestination;
     private String driver;
 
     public TripRequest() {
     }
 
-    public TripRequest(String driver, String clientLocation) {
+    public TripRequest(String driver, String clientLocation, String clientDestination) {
         super();
         this.driver = driver;
         this.clientLocation = clientLocation;
+        this.clientDestination = clientDestination;
     }
 
     public String getClientLocation() {
@@ -26,6 +28,14 @@ public class TripRequest {
         return driver;
     }
 
+    public String getClientDestination() {
+        return clientDestination;
+    }
+
+    public void setClientDestination(String clientDestination) {
+        this.clientDestination = clientDestination;
+    }
+
     public void setDriver(String driver) {
         this.driver = driver;
     }
@@ -34,7 +44,8 @@ public class TripRequest {
     public String toString() {
         return "TripRequest{" +
                 "clientLocation='" + clientLocation + '\'' +
-                ", driver=" + driver +
+                ", clientDestination='" + clientDestination + '\'' +
+                ", driver='" + driver + '\'' +
                 '}';
     }
 }
