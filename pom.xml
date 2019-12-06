@@ -30,6 +30,9 @@
                 <configuration>
                     <tomeeVersion>1.7.1</tomeeVersion>
                     <tomeeClassifier>plus</tomeeClassifier>
+                    <tomeeHost>localhost</tomeeHost>
+                    <tomeeHttpPort>8080</tomeeHttpPort>
+                    <path>/cuber</path>
                 </configuration>
             </plugin>
         </plugins>
