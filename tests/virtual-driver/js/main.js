@@ -23,8 +23,9 @@ function login() {
 }
 
 function initSocket() {
-    socket = io(`https://15.188.103.133/CuberSocket/driver?token=${$("#token").val()}`, {
-        transports: ['polling', 'websocket']
+    socket = io(`wss://15.188.103.133/driver?token=${$("#token").val()}`, {
+        path: "/CuberSocket/socket.io",
+        transports: ['websocket']
     });
     socket.on('connect', function () {
         output(`<span class="connect-msg">[connect] The driver has connected with the server. Username: ${userName}</span>`);
