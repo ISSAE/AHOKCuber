@@ -1,6 +1,5 @@
 # Cuber
 
-Ce README est actuellement un brouillon, et pourra être mis à jour régulièrement.
 ## Introduction
 Cuber est une application Uber-like qui permet aux utilisateurs de rechercher des chauffeurs pour aller à une destination, en guise de replacement aux taxis.
 
